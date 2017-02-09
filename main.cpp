@@ -2,15 +2,20 @@
 //with group - Katherine Minks, Gabriel Lockner, Matthew Rozendaal, Matthew Kolker (didn't show up first meeting)
 //zachswsmith@gmail.com or zssmith@dmacc.edu
 
+/*
+	Matthew Rozendaal
+	Got Quest And Main to work together - 30 Minutes
+	Learned how to do clear screen easily through this video:
+	https://youtu.be/VZ3mqZMtLmY
+*/
 // 1/25/17 - 5:00 pm to 6:00 pm
 // 1/26/17 - 5:30 pm to 6:30 pm
 // 1/31/17 - 8:15 pm to 9:30 pm
 // 2/1/17 - 9:30 pm to 10:30 pm
 
 //This is a text-based Role-Playing game where a player makes a character then goes on a quest, defeating bad guys/monsters on the way.
-
-
 #include <iostream>
+#include "Quest.h"
 #include <string>
 using namespace std;
 
@@ -22,27 +27,26 @@ int questMenu();
 
 int main()
 {
-	string	gameName = "Game Name", //string for game name, so that we can easily change the name of the game
-			userName; //user defined name
-	int menuNum,
-		startGameNum = 1; //number that is Start game
-
+	const int startGameNum = 1; //number that is Start game
+	const string gameName = "Game Name"; //string for game name, so that we can easily change the name of the game
+	string userName; //user defined name
+	int menuNum;
+	
+	
 	cout << "Welcome to " + gameName << endl;
 	cout << "Choose what you would like to do:" << endl;
-
-	menuNum = menuSelect (); //calls menu and gets the user's menu selection
-
-	if (menuNum == startGameNum) //to start the game
-	{
-		cout << "Please type your name (followed by the enter key): ";
-		cin.ignore();
-		getline(cin,userName);
-		startGame(userName);
-	}
-	else
-	{
-		cout << "Thanks for playing!" << endl; //to exit the program
-	}
+	
+	do{
+		menuNum = menuSelect(); //calls menu and gets the user's menu selection
+		
+		if (menuNum == startGameNum) //to start the game
+		{
+			cout << "Please type your name (followed by the enter key): ";
+			cin >> userName;
+			startGame(userName);
+		}
+	} while(menuNum != 2);
+	cout << "Thanks for playing!" << endl; //to exit the program
 	return 0;
 }
 
@@ -82,8 +86,10 @@ int menuSelect()
 //////////////////////////////////////
 void startGame(string userName)
 {
+	//Variables
 	int questMenuSelection;
-
+	Quest questSelect;
+	
 	cout << endl;
 	cout << "You've been summoned to the king's chambers. As you enter you hear sobbing. The King looks at you and exclaims, 'Oh "<< userName << ", you have to help me!'"<< endl;
 	cout << "'Our son is missing, my wife hasn't left her room in days and someone has stolen the family jewels. I just don't know what to do...'" << endl;
@@ -93,18 +99,24 @@ void startGame(string userName)
 
 	if (questMenuSelection == 1)
 	{
-
+		//questSelect.startQuest(1);
 	}
 	else if (questMenuSelection == 2)
 	{
-
+		//Clear the Screen
+		system("cls");
+		//Start Quest
+		questSelect.startQuest(2);
 	}
 	else if (questMenuSelection == 3)
 	{
-
+		//questSelect.startQuest(3);
 	}
 	else if (questMenuSelection == 4)
 	{
+		//User decides to do nothing with the king
+		//We should then have the user leave and 
+		//Fight monsters till they die.
 		cout << "Good-bye!" << endl;
 		return;
 	}

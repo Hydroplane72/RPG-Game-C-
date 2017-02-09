@@ -7,8 +7,6 @@ class Quest
 		int questNum;	
 	public:
 		Quest();
-		//gets the quest goal information
-		std::string getGoal(int);
 		//gets the quest scene info
 		static int startQuest(int);
 	
