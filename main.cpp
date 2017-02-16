@@ -110,7 +110,10 @@ void startGame(string userName)
 	}
 	else if (questMenuSelection == 3)
 	{
-		//questSelect.startQuest(3);
+		//Clear Screen of anything before now
+		system("cls");
+		//Start quest
+		questSelect.startQuest(3);
 	}
 	else if (questMenuSelection == 4)
 	{
