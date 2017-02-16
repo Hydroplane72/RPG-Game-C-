@@ -451,7 +451,7 @@ int getQuest3()
 {
 	int userNum = 0; //variable for user selection during dialogue
 	bool flag = false, //generic flag variable
-		scene1Complete = false, //flag for whether or not to move on to scene 2 in the 3rd quest
+		sceneComplete = false, //flag for whether or not to move on to scene 2 in the 3rd quest
 		repeat = false; //used to show if the player has gone back to a certain dialogue area
 
 	////////////////////////////////////////////////
@@ -562,7 +562,7 @@ int getQuest3()
 					cout << "'Then I don't see how you can fix my problem.' she waves you off" << endl;
 					cout << "You take that as your cue to leave, and walk out of the Queen's room." << endl;
 					cout << endl;
-					scene1Complete = false;
+					sceneComplete = false;
 					repeat = true;
 
 					system("pause");
@@ -586,7 +586,7 @@ int getQuest3()
 					cout << "'Tell the King I'm fine. He needn't worry about me,' she waves you off." << endl;
 					cout << "You take that as your cue to leave, and walk out of the Queen's room." << endl;
 					cout << endl;
-					scene1Complete = false;
+					sceneComplete = false;
 					repeat = true;
 
 					system("pause");
@@ -607,7 +607,7 @@ int getQuest3()
 			{
 				cout << "You leave the Queen's room." << endl;
 				cout << endl;
-				scene1Complete = false;
+				sceneComplete = false;
 				repeat = true;
 
 				system("pause");
@@ -638,7 +638,7 @@ int getQuest3()
 
 				system("pause");
 
-				scene1Complete = true;
+				sceneComplete = true;
 			}
 		}
 		//////////////////////////////////////////////////////////////
@@ -651,7 +651,7 @@ int getQuest3()
 			cout << endl;
 			return 1; //***Note: not sure how we want to show NOT completing the quest, but not dying
 		}
-	} while (scene1Complete == false);
+	} while (sceneComplete == false);
 
 	/////////////////////////////////////
 	////Scene 2 - 
