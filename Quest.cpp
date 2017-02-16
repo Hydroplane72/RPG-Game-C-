@@ -22,7 +22,7 @@ bool monsterCheck(int); //Simulates checking for monsters
 //Quest Prototypes
 //int getQuest1();
 int getQuest2(); //quest 2 function
-//int getQuest3();
+int getQuest3();
 Quest::Quest()
 {
 }
@@ -68,7 +68,7 @@ int Quest::startQuest(int questNum)
 	}
 	if (questNum == 3)
 	{
-		// quest = getQuest3();
+		quest = getQuest3();
 	}
 	
 	return quest;
@@ -125,7 +125,7 @@ int getQuest2()
 {
 	//variables
 	int returnNum;
-	{ //Scene 1 - Mountains
+	 //Scene 1 - Mountains
 		//Scene 1 - going over the mountain
 		cout << "You are trecking over the mountains to get the jewel back." << endl;
 		system("pause");
@@ -190,8 +190,8 @@ int getQuest2()
 		}
 		cout << "With a nod you realise that the castle is Gregors Castle." << endl;
 		system("pause");
-	}	
-	{ //Scene 2 - Outside Castle
+		
+	 //Scene 2 - Outside Castle
 		//variables
 		int userIn;
 		bool stop = false;
@@ -245,8 +245,8 @@ int getQuest2()
 		}
 		cout << "Success!" << endl;
 		cout << "You have made it inside the castle" << endl;
-	}
-	{ //Scene 3 - Inside Castle
+	
+	 //Scene 3 - Inside Castle
 	//Throne room, Queen’s Quarters, King’s quarters, Sanctuary, Guard Room or Great hall
 	//Let user choose rooms to go into
 	//Array of rooms
@@ -296,8 +296,8 @@ int getQuest2()
 		{
 			cout <<"Quietly you steal the jewel back." << endl;
 		}
-	}
-	{ //Scene 4 - Exit the Castle
+	
+	 //Scene 4 - Exit the Castle
 		/*
 		Scene 4: Once the stone is found, exit the castle (and fight the monster again) without being detected.
 		*/
@@ -337,8 +337,8 @@ int getQuest2()
 		*/
 		cout << "You have defeated the monster and escape to the mountains.";
 		system("pause");
-	}
-	{ //Scene 5 - Through the Mountains again
+	
+	 //Scene 5 - Through the Mountains again
 		cout << "The trees blur by as you race to get away from the castle of monsters." << endl;
 		if(monsterCheck(8)) 
 		{
@@ -413,7 +413,7 @@ int getQuest2()
 		cout << "The kings guard is on its way." << endl;
 		system("pause");
 		}
-	}
+	
 	//Give the jewel to the king
 	cout << "The kingdom rejoices as the jewel is returned." << endl;
 	cout << "You have completed the Crown Jewel quest." << endl;
