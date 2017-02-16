@@ -22,7 +22,8 @@ bool monsterCheck(int); //Simulates checking for monsters
 //Quest Prototypes
 //int getQuest1();
 int getQuest2(); //quest 2 function
-//int getQuest3();
+
+int getQuest3();
 
 Quest::Quest()
 {
@@ -45,7 +46,7 @@ int Quest::startQuest(int questNum)
 	}
 	if (questNum == 3)
 	{
-		// quest = getQuest3();
+		quest = getQuest3();
 	}
 	
 	return quest;
@@ -105,9 +106,9 @@ int getQuest2()
 {
 	//variables
 	int returnNum;
-	
-	{ //Scene 1 - Mountains
-		
+
+	 //Scene 1 - Mountains
+
 		//Scene 1 - going over the mountain
 		cout << "You are trecking over the mountains to get the jewel back." << endl;
 		system("pause");
@@ -173,10 +174,12 @@ int getQuest2()
 		}
 		cout << "With a nod you realise that the castle is Gregors Castle." << endl;
 		system("pause");
+
 		//Clear the Screen
 		system("cls");
-	}	
-	{ //Scene 2 - Outside Castle
+
+	 //Scene 2 - Outside Castle
+
 		//variables
 		int userIn;
 		bool stop = false;
@@ -236,12 +239,13 @@ int getQuest2()
 		
 		cout << "Success!" << endl;
 		cout << "You have made it inside the castle" << endl;
+
 		system("pause");
 		//Clear the Screen
 		system("cls");
-	}
-	{ //Scene 3 - Inside Castle
-	//Throne room, Queen’s Quarters, King’s quarters, Sanctuary, Guard Room or Great hall
+  //Scene 3 - Inside Castle
+	//Throne room, Queenï¿½s Quarters, Kingï¿½s quarters, Sanctuary, Guard Room or Great hall
+
 	//Let user choose rooms to go into
 	//Array of rooms
 		string rooms[6] = {"Throne room", "Queens Quarters", "Kings Quarters", "Sanctuary", "Guard Room", "Great Hall"};
@@ -294,11 +298,12 @@ int getQuest2()
 		{
 			cout <<"Quietly you steal the jewel back." << endl;
 		}
+
 		system("pause");
 		//Clear the Screen
 		system("cls");
-	}
-	{ //Scene 4 - Exit the Castle
+	 //Scene 4 - Exit the Castle
+
 		/*
 		Scene 4: Once the stone is found, exit the castle (and fight the monster again) without being detected.
 		*/
@@ -341,10 +346,11 @@ int getQuest2()
 		*/
 		cout << "You have defeated the monster and escape to the mountains." << endl;
 		system("pause");
+
 		//Clear the Screen
 		system("cls");
-	}
-	{ //Scene 5 - Through the Mountains again
+	//Scene 5 - Through the Mountains again
+
 		cout << "The trees blur by as you race to get away from the castle of monsters." << endl;
 		if(monsterCheck(8)) 
 		{
@@ -429,11 +435,225 @@ int getQuest2()
 		//Clear the Screen
 		system("cls");
 		}
-	}
+	
 	//Give the jewel to the king
 	cout << "The kingdom rejoices as the jewel is returned." << endl;
 	cout << "You have completed the Crown Jewel quest." << endl;
 	return 2;
 }
-//int getQuest3();
+
+
+//Zach Smith
+//2/8/2017 - 6pm - 6:30 pm, 9:30 pm - 12:00 am
+//2/9/2017 - 4:30 pm - 6:30 pm
+//2/15/2017 - 10:30 pm - 11:30 pm
+int getQuest3()
+{
+	int userNum = 0; //variable for user selection during dialogue
+	bool flag = false, //generic flag variable
+		scene1Complete = false, //flag for whether or not to move on to scene 2 in the 3rd quest
+		repeat = false; //used to show if the player has gone back to a certain dialogue area
+
+	////////////////////////////////////////////////
+	//////Scene 1 - to the Queen's chambers/////////
+	////////////////////////////////////////////////
+	do 
+	{
+		if (repeat == true) //used if this is the not the first time you have talked to the hand maiden
+		{
+			cout << "'Hello again,' the hand maiden exclaims, 'Did you find your answer?'" << endl;
+			flag = false;
+		}
+		else if (repeat == false && flag == true)
+		{
+			cout << "What would you like to ask now?" << endl;
+			flag = false;
+		}
+		else //used if this is the first time you have been to the Queen's chambers and talked to the hand maiden
+		{
+		cout << "The King gives you directions and you head towards the Queen's chambers." << endl;
+		cout << "The Queen's hand maiden is sitting on a bench next to the door." << endl;
+		cout << "The hand maiden asks, 'Can I help you with something?'" << endl;
+		}
+
+
+		do //gets user's selection for hand maiden dialogue question
+		{
+			if (flag == true) //used to add an extra cout if the menu is being repeated due to bad selection
+			{
+				cout << "Invalid selection. Please try again:" << endl;
+			}
+
+			if (repeat == false) //ask the hand maiden initial questions
+			{
+				cout << "1. The King has asked me to check on the Queen." << endl;
+				cout << "2. Can you tell me what's wrong with the Queen?" << endl;
+				cout << "3. No, Nevermind. (walk back to the King)" << endl;
+				cout << "Type the number of your response: " << endl;
+			}
+			else if (repeat == true)
+			{
+				cout << "1. I'd like to talk to the queen again." << endl;
+				cout << "2. Are you sure you can't tell me what's wrong with the queen?" << endl;
+				cout << "3. No, Nevermind. (walk back to the King)" << endl;
+				cout << "Type the number of your response: " << endl;
+			}
+
+			cin >> userNum;
+			flag = true; //flips flag to true so that if the menu repeats, it adds the invalid selection response before printing the menu again
+		} while (userNum != 1 && userNum != 2 && userNum != 3);
+
+		////////////////////////////////
+		/////Speaking with the Queen////
+		////////////////////////////////
+		if (userNum == 1) 
+		{
+			if (repeat == false)
+			{
+				cout << "Hand maiden says,'She hasn't been up for much talking lately, but you are more than welcome to try.'" << endl;
+				cout << "The hand maiden stands up and opens one of the large doors." << endl;
+				cout << "You step forward and enter the Queen's chambers. You hear the door shut behind you." << endl;
+				cout << "As you enter the dimly lit room, you look around and notice the high, painted ceilings. They depict what you think are Gods feasting and having fun." << endl;
+				cout << "While looking around at the extravagent room, you hear soft crying." << endl;
+				cout << "The Queen has collapsed in the corner of the room with her head in her hands." << endl;
+				cout << "As you approach, the Queen briefly looks up. 'Please, just go away' she whispers." << endl;
+			}
+			else if (repeat == true)
+			{
+				cout << "'Be careful,' she says, 'the Queen doesn't like to repeat herself, or people that meddle in her affairs...'" << endl;
+				cout << "You open the door and enter the Queen's room again." << endl;
+				cout << "The room seems darker now, but you can still make out the silhouette of the Queen in the corner of the room. " << endl;
+				cout << "'Come to interogate me again?' she shouts." << endl;
+				cout << "In the darkness, you notice a strange glow seemingly coming from her eyes." << endl;
+			}
+			flag = false; //resets flag to false
+
+			do //gets users input for "go away" response and subsequent "first" responses
+			{
+				if (flag == true)
+				{
+					cout << "Invalid selection. Please try again:" << endl;
+				}
+
+				if (repeat == false)
+				{
+					cout << "1. I'm here to help. What's wrong?" << endl;
+					cout << "2. The King wants to know if you are okay?" << endl;
+					cout << "3. As you wish. I'll let you be. (go back outside the room)" << endl;
+					cout << "Type the number of your response: " << endl;
+				}
+				else if (repeat == true)
+				{
+					cout << "1. I just want to help, but I can't help if I don't know what's wrong..." << endl;
+					cout << "2. I'm just doing what the King asked of me.  He is worried about you." << endl;
+					cout << "3. I've made a mistake coming back to disturb you.  I'm sorry. (go back outside the room)" << endl;
+					cout << "Type the number of your response : " << endl;
+				}
+				cin >> userNum;
+				flag = true;
+			} while (userNum != 1 && userNum != 2 && userNum != 3);
+
+			if (userNum == 1) //I'm here to help. What's wrong?
+			{
+				if (repeat == false)
+				{
+					cout << "'Are you a doctor?' she asks. " << "You shake your head 'no'." << endl;
+					cout << "'Then are you a shaman?' she asks. " << "Again, you shake your head 'no'." << endl;
+					cout << "'Then I don't see how you can fix my problem.' she waves you off" << endl;
+					cout << "You take that as your cue to leave, and walk out of the Queen's room." << endl;
+					cout << endl;
+					scene1Complete = false;
+					repeat = true;
+
+					system("pause");
+				}
+				else if (repeat == true)
+				{
+					cout << "'I warned you to leave...' as she says this, you notice the glowing eyes seem to be floating." << endl;
+					cout << "Suddenly the eyes are right in front of you, and with a terribly loud screech, your life is cut short..." << endl;
+
+					/////////////////
+					//need to figure out how to kill the player and exit the main program from here
+					////////////////
+
+					return 1;
+				}
+			}
+			else if (userNum == 2) //The King wants to know if you are okay?
+			{
+				if (repeat == false)//first time through
+				{
+					cout << "'Tell the King I'm fine. He needn't worry about me,' she waves you off." << endl;
+					cout << "You take that as your cue to leave, and walk out of the Queen's room." << endl;
+					cout << endl;
+					scene1Complete = false;
+					repeat = true;
+
+					system("pause");
+				}
+				else if (repeat == true)//second time through
+				{
+					cout << "'I warned you to leave...' as she says this, you notice the glowing eyes seem to be floating." << endl;
+					cout << "Suddenly the eyes are right in front of you, and with a terribly loud screech, your life is cut short..." << endl;
+
+					///////////////
+					//need to figure out how to kill the player and exit the main program from here
+					//////////////
+
+					return 1;
+				}
+			}
+			else //leave the queen's room without asking any questions
+			{
+				cout << "You leave the Queen's room." << endl;
+				cout << endl;
+				scene1Complete = false;
+				repeat = true;
+
+				system("pause");
+			}
+			flag = false; //resets flag
+		}
+
+		////////////////////////////////////////
+		/////Speaking with the hand maiden//////
+		///////////////////////////////////////
+		else if (userNum == 2)
+		{
+			if (repeat == false) //if you ask the maiden before talking to the queen
+			{
+				cout << "'It's not really my place to tell. You should talk to the Queen.'" << endl;
+
+				repeat = false;
+				flag = true;
+			}
+			else if (repeat == true) //after you have talked to the queen
+			{
+				cout << "The hand maiden looks around.  She ushers you in close." << endl;
+				cout << "'Look,' she whispers, 'somethings not right with the Queen.  It's like she's possessed or something.'" << endl;
+				cout << "'I've heard stories of the old Shamans dealing with things like this.  Maybe you could find one?'" << endl;
+				cout << "'I've heard they live out in the forests to the South.'" << endl << endl;
+
+				cout << "You ask the guards at the gate for directions, and head into the forest towards the last known location of the goblin village." << endl;
+
+				system("pause");
+
+				scene1Complete = true;
+			}
+		}
+		//////////////////////////////////////////////////////////////
+		//////////////////Turning down Queen's quest//////////////////
+		//goes back to the King without beginning the queen's quest//
+		/////////////////////////////////////////////////////////////
+		else 
+		{
+			cout << "You return to the King." << endl;
+			cout << endl;
+			return 1; //***Note: not sure how we want to show NOT completing the quest, but not dying
+		}
+	} while (scene1Complete == false);
+
+	/////////////////////////////////////
+	////Scene 2 - 
+	/////////////////////////////////////
 

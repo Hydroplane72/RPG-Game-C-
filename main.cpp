@@ -91,7 +91,7 @@ void startGame(string userName)
 	Quest questSelect;
 	
 	cout << endl;
-	cout << "You've been summoned to the king's chambers. As you enter you hear sobbing. The King looks at you and exclaims, 'Oh "<< userName << ", you have to help me!'"<< endl;
+	cout << "You've been summoned to the king's throne room. As you enter you hear sobbing. The King looks at you and exclaims, 'Oh "<< userName << ", you have to help me!'"<< endl;
 	cout << "'Our son is missing, my wife hasn't left her room in days and someone has stolen the family jewels. I just don't know what to do...'" << endl;
 	cout << endl;
 
