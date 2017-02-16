@@ -9,6 +9,7 @@ getScene()
 monsterCheck()
 getQuest2()
 */
+
 #include "Quest.h"
 #include <iostream>
 #include <ctime>
@@ -16,39 +17,16 @@ getQuest2()
 using namespace std;
 //ProtoTypes
 int rand(int min, int max); //Random Number Generator
-std::string getQuest(int);//gets the quest goal information
 std::string getScene(int,int); //gets the quest scene info
 bool monsterCheck(int); //Simulates checking for monsters
 //Quest Prototypes
 //int getQuest1();
 int getQuest2(); //quest 2 function
+
 int getQuest3();
+
 Quest::Quest()
 {
-}
-/**
-	Gets the questNum and returns a string	
-*/
-string Quest::getGoal(int questNum) 
-{
-	string goal;
-	//Switch statment to allow for more quests to be made available at later time
-	switch(questNum)
-	{
-		case 1:
-			goal = "Find and Save the young prince that is heir to the throne";
-			break;
-		case 2:
-			goal = "Get back the crown jewel that was stolen by Gregor the Great";
-			break;
-		case 3:
-			goal = "Console the Queen";
-			break;
-		default:
-			goal = "Invalid Quest Option. Entered Value: " + questNum;
-	}
-	return goal;
-	
 }
 /**
 	Finds the Quest Number then finds the scene within that quest Number
@@ -73,6 +51,7 @@ int Quest::startQuest(int questNum)
 	
 	return quest;
 }
+
 /**
 The same random number generator that Gabriel did
 */
@@ -104,8 +83,8 @@ bool monsterCheck(int chance)
 	}
 	return false;
 }
-/**
-	Start of Quest Functions
+
+/** Start of Quest Functions
 	Each Quest is carried out in the functions
 	At the end the quest will return an int that tells the 
 	computer if the user failed, completed, or got stuck
@@ -118,14 +97,18 @@ bool monsterCheck(int chance)
 	System pauses are to allow the user to just press any 
 	key to go to next line of info or task.
 	Optional: We could use a sleep timer that makes the computer stop
-	for a certain amount of time. This would allow for the user to read without having to click to get the next line	
+	for a certain amount of time. This would allow for the user to read without having to click to get the next line
+	
 */
+
 //int getQuest1();
 int getQuest2()
 {
 	//variables
 	int returnNum;
+
 	 //Scene 1 - Mountains
+
 		//Scene 1 - going over the mountain
 		cout << "You are trecking over the mountains to get the jewel back." << endl;
 		system("pause");
@@ -135,6 +118,7 @@ int getQuest2()
 			cout << "You must fight him to continue on" << endl;
 			//Start fight function here
 			/* TODO (#1#): Add fight function here. */
+			
 			//Fights return a bool
 			//true if dead
 			//false if alive
@@ -190,8 +174,12 @@ int getQuest2()
 		}
 		cout << "With a nod you realise that the castle is Gregors Castle." << endl;
 		system("pause");
-		
+
+		//Clear the Screen
+		system("cls");
+
 	 //Scene 2 - Outside Castle
+
 		//variables
 		int userIn;
 		bool stop = false;
@@ -216,6 +204,7 @@ int getQuest2()
 				cout<< "The monster didn't believe you (or believed you too well)." << endl;
 				//Start fight function here
 				/* TODO (#1#): Add fight function here. */
+				
 				//Fights return a bool
 				//true if dead
 				//false if alive
@@ -224,6 +213,7 @@ int getQuest2()
 				{
 					return 1; //the user failed the quest return 1
 				}
+				
 				*/
 				cout << "After defeating the monster you swim the moat and scale the wall." << endl;
 			}
@@ -233,6 +223,7 @@ int getQuest2()
 			cout << "You charge the monster with sword drawn" << endl;
 			//Start fight function here
 			/* TODO (#1#): Add fight function here. */
+			
 			//Fights return a bool
 			//true if dead
 			//false if alive
@@ -241,13 +232,20 @@ int getQuest2()
 			{
 				return 1; //the user failed the quest return 1
 			}
+			
 			*/
+			
 		}
+		
 		cout << "Success!" << endl;
 		cout << "You have made it inside the castle" << endl;
-	
-	 //Scene 3 - Inside Castle
-	//Throne room, Queen’s Quarters, King’s quarters, Sanctuary, Guard Room or Great hall
+
+		system("pause");
+		//Clear the Screen
+		system("cls");
+  //Scene 3 - Inside Castle
+	//Throne room, Queen�s Quarters, King�s quarters, Sanctuary, Guard Room or Great hall
+
 	//Let user choose rooms to go into
 	//Array of rooms
 		string rooms[6] = {"Throne room", "Queens Quarters", "Kings Quarters", "Sanctuary", "Guard Room", "Great Hall"};
@@ -264,6 +262,7 @@ int getQuest2()
 			cout<< "Choose one: ";
 			cin >> userIn; //get input
 			/* TODO (#1#): Add fight function here. */
+			
 			//Fights return a bool
 			//true if dead
 			//false if alive
@@ -272,6 +271,7 @@ int getQuest2()
 			{
 				return 1; //the user failed the quest return 1
 			}
+			
 			*/
 		} while(userIn != roomNum); //if user input does not = room number
 		//out put result
@@ -282,6 +282,7 @@ int getQuest2()
 		{
 			cout<< "The Guardian has Awoken!" << endl;
 			/* TODO (#1#): Add fight function here. */
+			
 			//Fights return a bool
 			//true if dead
 			//false if alive
@@ -290,20 +291,26 @@ int getQuest2()
 			{
 				return 1; //the user failed the quest return 1
 			}
+			
 			*/
 			cout << " Congrats you have defeated the guardian" << endl;
 		}else
 		{
 			cout <<"Quietly you steal the jewel back." << endl;
 		}
-	
+
+		system("pause");
+		//Clear the Screen
+		system("cls");
 	 //Scene 4 - Exit the Castle
+
 		/*
 		Scene 4: Once the stone is found, exit the castle (and fight the monster again) without being detected.
 		*/
 		cout<< "Stealthily you start to make your way out of the castle." << endl;
 		if(monsterCheck(6)) //check on if they will be caught 
 		{
+			
 			cout << "You have been found!" << endl;
 			//Start fight function here
 			/* TODO (#1#): Add fight function here. */
@@ -326,6 +333,7 @@ int getQuest2()
 		cout << "Fight him quickly and escape!" << endl;
 		//fight the guard
 		/* TODO (#1#): Add fight function here. */
+		
 		//Fights return a bool
 		//true if dead
 		//false if alive
@@ -334,17 +342,22 @@ int getQuest2()
 		{
 			return 1; //the user failed the quest return 1
 		}
+		
 		*/
-		cout << "You have defeated the monster and escape to the mountains.";
+		cout << "You have defeated the monster and escape to the mountains." << endl;
 		system("pause");
-	
-	 //Scene 5 - Through the Mountains again
+
+		//Clear the Screen
+		system("cls");
+	//Scene 5 - Through the Mountains again
+
 		cout << "The trees blur by as you race to get away from the castle of monsters." << endl;
 		if(monsterCheck(8)) 
 		{
 			cout << "One of the monsters from the castle has caught up to you!" << endl;
 			//Start fight function here
 			/* TODO (#1#): Add fight function here. */
+			
 			//Fights return a bool
 			//true if dead
 			//false if alive
@@ -353,6 +366,7 @@ int getQuest2()
 			{
 				return 1; //the user failed the quest return 1
 			}
+			
 			*/
 			cout << "The path ahead is getting harder with your wounds." << endl;
 			system("pause");
@@ -364,6 +378,7 @@ int getQuest2()
 			cout << "Show him the error of his ways" << endl;
 			//Start fight function here
 			/* TODO (#1#): Add fight function here. */
+			
 			//Fights return a bool
 			//true if dead
 			//false if alive
@@ -372,8 +387,9 @@ int getQuest2()
 			{
 				return 1; //the user failed the quest return 1
 			}
+			
 			*/
-			cout << "The monsters death may have alerted others to your position. You continue on quickly." << endl;
+			cout << "The monsters death may have alerted others to your position.\nYou continue on quickly." << endl;
 			system("pause");
 		}
 		cout << "The winds are howling and you can hear the monsters still chasing you in the mountains." << endl;
@@ -382,6 +398,7 @@ int getQuest2()
 			cout << "A monster has caught your scent and found you." << endl;
 			//Start fight function here
 			/* TODO (#1#): Add fight function here. */
+			
 			//Fights return a bool
 			//true if dead
 			//false if alive
@@ -390,17 +407,19 @@ int getQuest2()
 			{
 				return 1; //the user failed the quest return 1
 			}
+			
 			*/
 			cout << "The monsters death may have alerted others to your position. You continue on quickly." << endl;
 			system("pause");
 		}
 		cout << "You can see the kings castle in the distance. You laugh in delight as" << endl << 
-		" you start on your way to the castle." << endl;
+		"you start on your way to the castle." << endl;
 		if(monsterCheck(2)) 
 		{
 		cout << "A monster went ahead of you and planned an ambush." << endl;
 		//Start fight function here
 		/* TODO (#1#): Add fight function here. */
+		
 		//Fights return a bool
 		//true if dead
 		//false if alive
@@ -409,9 +428,12 @@ int getQuest2()
 		{
 			return 1; //the user failed the quest return 1
 		}
+		
 		*/
 		cout << "The kings guard is on its way." << endl;
 		system("pause");
+		//Clear the Screen
+		system("cls");
 		}
 	
 	//Give the jewel to the king
@@ -419,6 +441,8 @@ int getQuest2()
 	cout << "You have completed the Crown Jewel quest." << endl;
 	return 2;
 }
+
+
 //Zach Smith
 //2/8/2017 - 6pm - 6:30 pm, 9:30 pm - 12:00 am
 //2/9/2017 - 4:30 pm - 6:30 pm
@@ -632,3 +656,4 @@ int getQuest3()
 	/////////////////////////////////////
 	////Scene 2 - 
 	/////////////////////////////////////
+
