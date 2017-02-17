@@ -658,6 +658,7 @@ int getQuest3()
 	/////////////////////////////////////
 	////Scene 2 - Into the Forest////////
 	/////////////////////////////////////
+	
 	sceneComplete = false;
 	do
 	{
@@ -674,12 +675,97 @@ int getQuest3()
 			cin >> userNum;
 		} while (userNum != 1 && userNum != 2); //checks user's input to make sure it is a valid response
 
+		/////////////////////////////////////////////////////////////////////////////
+		//Keep traveling south, higher chance of fighting, but less fights possible//
+		/////////////////////////////////////////////////////////////////////////////
+		if (userNum == 1) 
+		{
+			cout << "You decide to keep traveling south, through the undisturbed forest." << endl;
+			cout << "As you get farther from the path, you hear a branch snap..." << endl;
+			
+			////////////////////////////
+			//First Encounter chance////
+			////////////////////////////
+			if (monsterCheck(6)) //checks to see if a random monster appears
+			{
+				/////
+				/////
+				///// add monster fight
+				/////
+				/////
+				cout << "You check yourself over and patch up your wounds." << endl;
+			}
+			else
+			{
+				cout << "A deer, startled by your movement, bolts out from the brush, and disappears deeper into the forest.";
+			}
+			cout << "You continue hiking through the forest, which seems to be getting darker the deeper you go." << endl << endl;
+
+			system("pause");
+
+			///////////////////////////
+			//Second Encounter Chance//
+			///////////////////////////
+			cout << "A clearing opens in front of you.  It is dark, but you notice some ruins." << endl;
+			cout << "As you approach the ruins, a shape stands out.  It looks humanoid...but maybe not?  You can't tell..." << endl;
+			if (monsterCheck(8))
+			{
+				/////
+				/////
+				///// add monster fight
+				/////
+				/////
+				cout << "You bandage yourself up, and take a quick breather." << endl;
+			}
+			else
+			{
+				cout << "The shape appears to be a statue of some sort of humanoid beast, left in tact from whatever these ruins used to be." << endl;
+				cout << "It poses no threat, but makes you wonder what used to live here..." << endl;
+			}
+			cout << "You take out your map, and make note of the approximate location of these ruins, for further exploration at a later date." << endl;
+			cout << "You proceed out of the clearing, and deeper into the forest." << endl;
+
+			system("pause");
+
+			/////////////////////////
+			//Last Encounter Chance//
+			/////////////////////////
+			cout << "You can hear something in the distance. It sounds like...a village?"<< endl;
+			cout << "As you get closer, you can make out voices, although you can't understand them." << endl;
+
+			if (monsterCheck(9))
+			{
+				cout << "You are almost to the voices when something bursts out in front of you!" << endl;
+				/////
+				/////
+				///// add monster fight
+				/////
+				/////
+				cout << "You take a few moments to recuperate and stop the bleeding." << endl;
+			}
+			else
+			{
+				cout << "You step out of the trees, and into what looks like a small village. " << endl;
+			}
+		}
+
+		////////////////////////////////////////////////////////////////////////////////
+		//take the south east path, lower chance of fighting, but more fights possible//
+		////////////////////////////////////////////////////////////////////////////////
+		else if (userNum == 2)
+		{
+
+		}
+
+		else //if userNum is anything other than 1 or 2 after being validated
+		{
+			cout << "An error has occurred." << endl;
+		}
+
 		sceneComplete = true;
 	} while (sceneComplete == false);
 
-
 	system("pause");
-
 	////////////////////////////////////////////
 	////Scene 3 - Speaking to the shaman////////
 	///////////////////////////////////////////
