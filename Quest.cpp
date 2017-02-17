@@ -661,8 +661,9 @@ int getQuest3()
 	sceneComplete = false;
 	do
 	{
+		cout << endl;
 		cout << "Your journey takes you deep into the forest.  As you are walking, you notice a sort of trail." << endl;
-		cout << "The trail veers a little off to the South East, but much easier to travel." << endl;
+		cout << "The trail veers a little off to the South East, but looks much easier to travel." << endl;
 		
 		do
 		{
