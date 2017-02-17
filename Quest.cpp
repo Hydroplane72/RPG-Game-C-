@@ -631,12 +631,12 @@ int getQuest3()
 			{
 				cout << "The hand maiden looks around.  She ushers you in close." << endl;
 				cout << "'Look,' she whispers, 'somethings not right with the Queen.  It's like she's possessed or something.'" << endl;
-				cout << "'I've heard stories of the old Shamans dealing with things like this.  Maybe you could find one?'" << endl;
-				cout << "'I've heard they live out in the forests to the South.'" << endl << endl;
+				cout << "'I've heard stories of the Goblin Shamans dealing with things like this.  Maybe you could find one?'" << endl;
+				cout << "'The guards might know,' she states matter of factly." << endl << endl;
 
-				cout << "You ask the guards at the gate for directions, and head into the forest towards the last known location of the goblin village." << endl;
-
-				system("pause");
+				cout << "You make your way to the gates of the castle.  There are 2 guards standing idly by." << endl;
+				cout << "You ask the guards at the gate for directions.  They mention they have heard of Goblins raiding from deep the South forest." << endl;
+				cout << "As you	exit the castle, you bid them thanks, and head into the forest towards the last known location of the goblin village." << endl;
 
 				sceneComplete = true;
 			}
@@ -653,7 +653,71 @@ int getQuest3()
 		}
 	} while (sceneComplete == false);
 
+	system("pause");
+	
 	/////////////////////////////////////
-	////Scene 2 - 
+	////Scene 2 - Into the Forest////////
 	/////////////////////////////////////
+	sceneComplete = false;
+	do
+	{
+		cout << "Your journey takes you deep into the forest.  As you are walking, you notice a sort of trail." << endl;
+		cout << "The trail veers a little off to the South East, but much easier to travel." << endl;
+		
+		do
+		{
+			cout << "What would you like to do? " << endl;
+			cout << "1. Keep traveling straight South" << endl;
+			cout << "2. Take the path heading South East" << endl;
+			cout << "Type the number of your choice: " << endl;
+			cin >> userNum;
+		} while (userNum != 1 && userNum != 2); //checks user's input to make sure it is a valid response
+
+		sceneComplete = true;
+	} while (sceneComplete == false);
+
+
+	system("pause");
+
+	////////////////////////////////////////////
+	////Scene 3 - Speaking to the shaman////////
+	///////////////////////////////////////////
+	sceneComplete = false;
+	do
+	{
+
+		cout << "Here is scene 3" << endl; //just a test to see if get to scene 3
+		sceneComplete = true;
+	} while (sceneComplete == false);
+
+	system("pause");
+
+	////////////////////////////////////////
+	////Scene 4 - Finding the Herb//////////
+	////////////////////////////////////////
+	sceneComplete = false;
+	do
+	{
+
+		cout << "Here is scene 4" << endl; //just a test to see if get to scene 4
+		sceneComplete = true;
+	} while (sceneComplete == false);
+
+	system("pause");
+
+	////////////////////////////////////////
+	////Scene 5 - Healing the Queen/////////
+	////////////////////////////////////////
+	sceneComplete = false;
+	do
+	{
+
+		cout << "Here is scene 5" << endl; //just a test to see if get to scene 5
+		sceneComplete = true;
+	} while (sceneComplete == false);
+
+	system("pause");
+
+	return 2; //should return that quest 3 has been completed
+}
 
