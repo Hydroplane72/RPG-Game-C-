@@ -635,7 +635,7 @@ int getQuest3()
 				cout << "'The guards might know,' she states matter of factly." << endl << endl;
 
 				cout << "You make your way to the gates of the castle.  There are 2 guards standing idly by." << endl;
-				cout << "You ask the guards at the gate for directions.  They mention they have heard of Goblins raiding from deep the South forest." << endl;
+				cout << "You ask the guards at the gate for directions.  They mention they have heard of Goblins raiding from deep in the South forest." << endl;
 				cout << "As you	exit the castle, you bid them thanks, and head into the forest towards the last known location of the goblin village." << endl;
 
 				sceneComplete = true;
