@@ -23,7 +23,6 @@
 #include <string>
 using namespace std;
 
-bool Battle(Character *, Creature *);
 void menu();
 int menuSelect();
 void startGame(string);
