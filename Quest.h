@@ -9,6 +9,7 @@ class Quest
 		Quest();
 		//gets the quest scene info
 		static int startQuest(int);
+		bool Battle(Character *,Creature *);
 	
 };
 
