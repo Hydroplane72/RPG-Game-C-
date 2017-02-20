@@ -841,6 +841,7 @@ int getQuest3()
 	cout << "The book looks as if it has been around for ages..." << endl;
 	cout << "'I may know of a cure, but only one who has shown their might can receive knowledge from our sacred tomes.'" << endl;
 	cout << "He shouts, 'Bring out Fliggurt!'" << endl;
+	cout << endl;
 	system("pause");
 
 	cout << "You hear something rolling your way.  Around one of the huts comes a wheeled cage, being pushed by a number of Goblins." << endl;
@@ -858,6 +859,7 @@ int getQuest3()
 	cout << "The Shaman hurriedly walks over to the body of Fliggurt." << endl;
 	cout << "He whispers something and you see the body of Fliggurt begin to glow." << endl;
 	cout << "His wounds begin to heal, and he begins to breath again." << endl;
+	cout << endl;
 	system("pause");
 
 	cout << "The Shaman turns back to you, 'so now that we have settled that...'" << endl;
