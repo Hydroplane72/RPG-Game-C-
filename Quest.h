@@ -9,7 +9,6 @@ class Quest
 		Quest();
 		//gets the quest scene info
 		int startQuest(int);
-		bool Battle(Character *,Creature *);
 		bool Battle(string monsterName,int monsterLevel, int monsterAttack, int monsterHealth, int playerAttack, int playerHealth);
 	
 };
