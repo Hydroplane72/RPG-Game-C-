@@ -15,10 +15,14 @@ getQuest2()
 #include <ctime>
 #include <cstdlib>
 using namespace std;
+
 //ProtoTypes
 int rand(int min, int max); //Random Number Generator
 std::string getScene(int,int); //gets the quest scene info
 bool monsterCheck(int); //Simulates checking for monsters
+bool Battle(string, int, int, int, int, int); //stages battle sequence
+
+
 //Quest Prototypes
 //int getQuest1();
 int getQuest2(); //quest 2 function
@@ -106,50 +110,40 @@ int getQuest2()
 {
 	//variables
 	int returnNum;
+	bool fightResult;
 
 	 //Scene 1 - Mountains
 
 		//Scene 1 - going over the mountain
 		cout << "You are trecking over the mountains to get the jewel back." << endl;
-		system("pause");
+		//system("pause");
 		if(monsterCheck(2)) 
 		{
 			cout << "A monster has found you!" << endl;
 			cout << "You must fight him to continue on" << endl;
-			//Start fight function here
-			/* TODO (#1#): Add fight function here. */
 			
-			//Fights return a bool
-			//true if dead
-			//false if alive
-			/*
-			if(fightResult) //the User died
+			fightResult = Battle("monster", 1, 1, 1, 10, 10);
+
+			if(!fightResult) //the User died
 			{
 				return 1; //the user failed the quest return 1
 			}
 			
-			*/
 			cout << "You nurse your injuries as you continue on." << endl;
 		}
 		cout << "As you continue to walk you see the faint outline of a building." << endl;
-		system("pause");
+		//system("pause");
 		if(monsterCheck(4)) 
 		{
 			cout << "A monster has found you!" << endl;
 			cout << "You must fight him to continue on" << endl;
-			//Start fight function here
-			/* TODO (#1#): Add fight function here. */
 			
-			//Fights return a bool
-			//true if dead
-			//false if alive
-			/*
-			if(fightResult) //the User died
+			fightResult = Battle("monster", 1, 1, 1, 10, 10);
+
+			if(!fightResult) //the User died
 			{
 				return 1; //the user failed the quest return 1
 			}
-			
-			*/
 			cout << "You nurse your injuries as you continue on." << endl;
 		}
 		cout << "You a closer now and you can now see the building is a castle." << endl;
@@ -157,23 +151,17 @@ int getQuest2()
 		{
 			cout << "A scout has found you!" << endl;
 			cout << "You must fight him to continue on." << endl;
-			//Start fight function here
-			/* TODO (#1#): Add fight function here. */
-			
-			//Fights return a bool
-			//true if dead
-			//false if alive
-			/*
-			if(fightResult) //the User died
+						
+			fightResult = Battle("monster", 1, 1, 1, 10, 10);
+
+			if(!fightResult) //the User died
 			{
 				return 1; //the user failed the quest return 1
 			}
-			
-			*/
 			cout << "You nurse your injuries as you continue on." << endl;
 		}
 		cout << "With a nod you realise that the castle is Gregors Castle." << endl;
-		system("pause");
+		//system("pause");
 
 		//Clear the Screen
 		system("cls");
@@ -202,47 +190,35 @@ int getQuest2()
 			{
 				//if rand number is 1 or 2 then the user will fight the monster
 				cout<< "The monster didn't believe you (or believed you too well)." << endl;
-				//Start fight function here
-				/* TODO (#1#): Add fight function here. */
-				
-				//Fights return a bool
-				//true if dead
-				//false if alive
-				/*
-				if(fightResult) //the User died
-				{
-					return 1; //the user failed the quest return 1
-				}
-				
-				*/
+							
+			fightResult = Battle("monster", 1, 1, 1, 10, 10);
+
+			if(!fightResult) //the User died
+			{
+				return 1; //the user failed the quest return 1
+			}
 				cout << "After defeating the monster you swim the moat and scale the wall." << endl;
 			}
 		}
 		else //the user decides to fight
 		{
 			cout << "You charge the monster with sword drawn" << endl;
-			//Start fight function here
-			/* TODO (#1#): Add fight function here. */
-			
-			//Fights return a bool
-			//true if dead
-			//false if alive
-			/*
-			if(fightResult) //the User died
+						
+			fightResult = Battle("monster", 1, 1, 1, 10, 10);
+
+			if(!fightResult) //the User died
 			{
 				return 1; //the user failed the quest return 1
 			}
-			
-			*/
 			
 		}
 		
 		cout << "Success!" << endl;
 		cout << "You have made it inside the castle" << endl;
 
-		system("pause");
+		//system("pause");
 		//Clear the Screen
-		system("cls");
+		//system("cls");
   //Scene 3 - Inside Castle
 	//Throne room, Queen�s Quarters, King�s quarters, Sanctuary, Guard Room or Great hall
 
@@ -250,7 +226,6 @@ int getQuest2()
 	//Array of rooms
 		string rooms[6] = {"Throne room", "Queens Quarters", "Kings Quarters", "Sanctuary", "Guard Room", "Great Hall"};
 		int roomNum = rand(0, 5); //The room with the Jewel in it
-		int userIn;	
 		do 
 		{
 			//give choices
@@ -261,47 +236,37 @@ int getQuest2()
 			}
 			cout<< "Choose one: ";
 			cin >> userIn; //get input
-			/* TODO (#1#): Add fight function here. */
-			
-			//Fights return a bool
-			//true if dead
-			//false if alive
-			/*
-			if(fightResult) //the User died
+						
+			fightResult = Battle("monster", 1, 1, 1, 10, 10);
+
+			if(!fightResult) //the User died
 			{
 				return 1; //the user failed the quest return 1
 			}
-			
-			*/
 		} while(userIn != roomNum); //if user input does not = room number
 		//out put result
 		cout << "As you walk into the " << rooms[roomNum] << ".";
 		cout << "You see the jewel and its guardian. The guardian is sleeping." << endl;
-		system("pause");
+		//system("pause");
 		if(monsterCheck(5)) //Should be 50/50 chance
 		{
 			cout<< "The Guardian has Awoken!" << endl;
-			/* TODO (#1#): Add fight function here. */
-			
-			//Fights return a bool
-			//true if dead
-			//false if alive
-			/*
-			if(fightResult) //the User died
+						
+			fightResult = Battle("monster", 1, 1, 1, 10, 10);
+
+			if(!fightResult) //the User died
 			{
 				return 1; //the user failed the quest return 1
 			}
-			
-			*/
 			cout << " Congrats you have defeated the guardian" << endl;
 		}else
 		{
 			cout <<"Quietly you steal the jewel back." << endl;
 		}
 
-		system("pause");
+		//system("pause");
 		//Clear the Screen
-		system("cls");
+		//system("cls");
 	 //Scene 4 - Exit the Castle
 
 		/*
@@ -312,19 +277,13 @@ int getQuest2()
 		{
 			
 			cout << "You have been found!" << endl;
-			//Start fight function here
-			/* TODO (#1#): Add fight function here. */
-			
-			//Fights return a bool
-			//true if dead
-			//false if alive
-			/*
-			if(fightResult) //the User died
+						
+			fightResult = Battle("monster", 1, 1, 1, 10, 10);
+
+			if(!fightResult) //the User died
 			{
 				return 1; //the user failed the quest return 1
 			}
-			
-			*/
 			cout << "Slowly you continue onwards through the dungeons" << endl;
 			system("pause");
 		}
@@ -332,42 +291,30 @@ int getQuest2()
 		cout << "You have made it to the front gates but there is a new guard there!" << endl;
 		cout << "Fight him quickly and escape!" << endl;
 		//fight the guard
-		/* TODO (#1#): Add fight function here. */
-		
-		//Fights return a bool
-		//true if dead
-		//false if alive
-		/*
-		if(fightResult) //the User died
+					
+		fightResult = Battle("monster", 1, 1, 1, 10, 10);
+		if(!fightResult) //the User died
 		{
 			return 1; //the user failed the quest return 1
 		}
-		
-		*/
 		cout << "You have defeated the monster and escape to the mountains." << endl;
-		system("pause");
+		//system("pause");
 
 		//Clear the Screen
-		system("cls");
+		//system("cls");
 	//Scene 5 - Through the Mountains again
 
 		cout << "The trees blur by as you race to get away from the castle of monsters." << endl;
 		if(monsterCheck(8)) 
 		{
 			cout << "One of the monsters from the castle has caught up to you!" << endl;
-			//Start fight function here
-			/* TODO (#1#): Add fight function here. */
-			
-			//Fights return a bool
-			//true if dead
-			//false if alive
-			/*
-			if(fightResult) //the User died
+						
+			fightResult = Battle("monster", 1, 1, 1, 10, 10);
+
+			if(!fightResult) //the User died
 			{
 				return 1; //the user failed the quest return 1
 			}
-			
-			*/
 			cout << "The path ahead is getting harder with your wounds." << endl;
 			system("pause");
 		}
@@ -376,64 +323,46 @@ int getQuest2()
 		{
 			cout << "A monster thinks of you as easy pickings!" << endl;
 			cout << "Show him the error of his ways" << endl;
-			//Start fight function here
-			/* TODO (#1#): Add fight function here. */
-			
-			//Fights return a bool
-			//true if dead
-			//false if alive
-			/*
-			if(fightResult) //the User died
+						
+			fightResult = Battle("monster", 1, 1, 1, 10, 10);
+
+			if(!fightResult) //the User died
 			{
 				return 1; //the user failed the quest return 1
 			}
-			
-			*/
 			cout << "The monsters death may have alerted others to your position.\nYou continue on quickly." << endl;
-			system("pause");
+			//system("pause");
 		}
 		cout << "The winds are howling and you can hear the monsters still chasing you in the mountains." << endl;
 		if(monsterCheck(6)) 
 		{
 			cout << "A monster has caught your scent and found you." << endl;
-			//Start fight function here
-			/* TODO (#1#): Add fight function here. */
-			
-			//Fights return a bool
-			//true if dead
-			//false if alive
-			/*
-			if(fightResult) //the User died
+						
+			fightResult = Battle("monster", 1, 1, 1, 10, 10);
+
+			if(!fightResult) //the User died
 			{
 				return 1; //the user failed the quest return 1
 			}
-			
-			*/
 			cout << "The monsters death may have alerted others to your position. You continue on quickly." << endl;
-			system("pause");
+			//system("pause");
 		}
 		cout << "You can see the kings castle in the distance. You laugh in delight as" << endl << 
 		"you start on your way to the castle." << endl;
 		if(monsterCheck(2)) 
 		{
 		cout << "A monster went ahead of you and planned an ambush." << endl;
-		//Start fight function here
-		/* TODO (#1#): Add fight function here. */
-		
-		//Fights return a bool
-		//true if dead
-		//false if alive
-		/*
-		if(fightResult) //the User died
+					
+		fightResult = Battle("monster", 1, 1, 1, 10, 10);
+
+		if(!fightResult) //the User died
 		{
 			return 1; //the user failed the quest return 1
 		}
-		
-		*/
 		cout << "The kings guard is on its way." << endl;
-		system("pause");
+		//system("pause");
 		//Clear the Screen
-		system("cls");
+		//system("cls");
 		}
 	
 	//Give the jewel to the king
@@ -450,13 +379,14 @@ int getQuest2()
 int getQuest3()
 {
 	int userNum = 0; //variable for user selection during dialogue
-	bool flag = false, //generic flag variable
+	bool flag = false; //generic flag variable
+	bool fightResult;
 		sceneComplete = false, //flag for whether or not to move on to scene 2 in the 3rd quest
 		repeat = false; //used to show if the player has gone back to a certain dialogue area
 
 	////////////////////////////////////////////////
 	//////Scene 1 - to the Queen's chambers/////////
-	////////////////////////////////////////////////
+	////////////////i////////////////////////////////
 	do 
 	{
 		if (repeat == true) //used if this is the not the first time you have talked to the hand maiden
@@ -565,7 +495,7 @@ int getQuest3()
 					sceneComplete = false;
 					repeat = true;
 
-					system("pause");
+					//system("pause");
 				}
 				else if (repeat == true)
 				{
@@ -589,7 +519,7 @@ int getQuest3()
 					sceneComplete = false;
 					repeat = true;
 
-					system("pause");
+					//system("pause");
 				}
 				else if (repeat == true)//second time through
 				{
@@ -610,7 +540,7 @@ int getQuest3()
 				sceneComplete = false;
 				repeat = true;
 
-				system("pause");
+				//system("pause");
 			}
 			flag = false; //resets flag
 		}
@@ -653,7 +583,7 @@ int getQuest3()
 		}
 	} while (sceneComplete == false);
 
-	system("pause");
+	//system("pause");
 	
 	/////////////////////////////////////
 	////Scene 2 - Into the Forest////////
@@ -688,11 +618,13 @@ int getQuest3()
 			////////////////////////////
 			if (monsterCheck(6)) //checks to see if a random monster appears
 			{
-				/////
-				/////
-				///// add monster fight
-				/////
-				/////
+			
+				fightResult = Battle("monster", 1, 1, 1, 10, 10);
+
+				if(!fightResult) //the User died
+				{
+					return 1; //the user failed the quest return 1
+				}
 				cout << "You check yourself over and patch up your wounds." << endl;
 			}
 			else
@@ -701,7 +633,7 @@ int getQuest3()
 			}
 			cout << "You continue hiking through the forest, which seems to be getting darker the deeper you go." << endl << endl;
 
-			system("pause");
+			//system("pause");
 
 			///////////////////////////
 			//Second Encounter Chance//
@@ -710,11 +642,13 @@ int getQuest3()
 			cout << "As you approach the ruins, a shape stands out.  It looks humanoid...but maybe not?  You can't tell..." << endl;
 			if (monsterCheck(8))
 			{
-				/////
-				/////
-				///// add monster fight
-				/////
-				/////
+							
+				fightResult = Battle("monster", 1, 1, 1, 10, 10);
+
+				if(!fightResult) //the User died
+				{
+					return 1; //the user failed the quest return 1
+				}
 				cout << "You bandage yourself up, and take a quick breather." << endl;
 			}
 			else
@@ -725,7 +659,7 @@ int getQuest3()
 			cout << "You take out your map, and make note of the approximate location of these ruins, for further exploration at a later date." << endl;
 			cout << "You proceed out of the clearing, and deeper into the forest." << endl;
 
-			system("pause");
+			//system("pause");
 
 			/////////////////////////
 			//Last Encounter Chance//
@@ -736,11 +670,13 @@ int getQuest3()
 			if (monsterCheck(9))
 			{
 				cout << "You are almost to the voices when something bursts out in front of you!" << endl;
-				/////
-				/////
-				///// add monster fight
-				/////
-				/////
+							
+				fightResult = Battle("monster", 1, 1, 1, 10, 10);
+	
+				if(!fightResult) //the User died
+				{
+					return 1; //the user failed the quest return 1
+				}
 				cout << "You take a few moments to recuperate and stop the bleeding." << endl;
 			}
 			else
@@ -765,7 +701,7 @@ int getQuest3()
 		sceneComplete = true;
 	} while (sceneComplete == false);
 
-	system("pause");
+	//system("pause");
 	////////////////////////////////////////////
 	////Scene 3 - Speaking to the shaman////////
 	///////////////////////////////////////////
@@ -777,7 +713,7 @@ int getQuest3()
 		sceneComplete = true;
 	} while (sceneComplete == false);
 
-	system("pause");
+	//system("pause");
 
 	////////////////////////////////////////
 	////Scene 4 - Finding the Herb//////////
@@ -790,7 +726,7 @@ int getQuest3()
 		sceneComplete = true;
 	} while (sceneComplete == false);
 
-	system("pause");
+	//system("pause");
 
 	////////////////////////////////////////
 	////Scene 5 - Healing the Queen/////////
@@ -803,8 +739,74 @@ int getQuest3()
 		sceneComplete = true;
 	} while (sceneComplete == false);
 
-	system("pause");
+	//system("pause");
 
 	return 2; //should return that quest 3 has been completed
+}
+
+
+// Battle System by Gabriel Lockner
+// Implemented February 19, 2017
+
+bool Battle(string monsterName,int monsterLevel, int monsterAttack, int monsterHealth, int playerAttack, int playerHealth)
+{
+	int choice;
+	
+	cout << "A level " << monsterLevel << monsterName << " is attacking!"
+	<< "\n What do you do?\n\n";
+
+	cout << "Player HP:" << playerHealth << " " << monsterName
+	<< " HP:" << monsterHealth;
+
+	cout << "1.) Fight\n2.) Run!\n\n";
+	cin >> choice;
+
+	while(choice != 1 && choice != 2)
+	{
+		cout << "Invalid! Try again: \n\n"
+		<< "1.) Fight\n2.) Run\n\n";
+	}
+	
+	switch(choice)
+	{
+		case 1:
+		{
+			cout << "WHACK!\n\n You hit the " << monsterName << " for "
+			<< playerAttack << " damage!\n\n";
+			
+			monsterHealth -= playerAttack;
+			
+			while(true)
+			{
+				if(monsterHealth < 1)
+				{
+					cout << "You successfully killed the " << monsterName << "!\n\n";
+					return true; // RETURN TRUE TO INDICATE VICTORY
+				}
+				
+				cout << "The " << monsterName << " retaliated for "
+				<< monsterAttack << " damage!\n\n";
+			
+				playerHealth -= monsterAttack;
+			
+				if(playerHealth < 1)
+				{
+					cout << "The " << monsterName << " has dealt lethal damage...\n"
+					<< "You died!";
+					return false; // RETURN FALSE TO INDICATE DEFEAT
+				}
+			}
+		}
+		case 2:		
+		{			
+			cout << "You deftly escape the " << monsterName << "'s attacks.\n"
+			<< "Got away safely!";
+			return true;
+		}
+		default:
+		{
+			cout << "ERROR: INVALID INPUT\n";
+		}
+	}
 }
 
