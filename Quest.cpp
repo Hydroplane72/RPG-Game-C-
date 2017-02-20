@@ -812,11 +812,67 @@ int getQuest3()
 	sceneComplete = false;
 	do
 	{
+		cout << "As you enter the village, you notice that it is very quiet." << endl;
+		cout << "You look around and notice that things have been left lying around on the ground, like the people left in a hurry." << endl;
+		cout << "There seems to be a larger hut in the middle.  As you approach it, you hear footsteps behind you..." << endl;
+		cout << endl;
+		cout << "A number of Goblins have come out of hiding and have surrounded you.  They are all armed, but looked scared." << endl;
+		cout << "One of the Goblins steps forward, 'Who are you and why have you entered our village?'" << endl;
+		cout << endl;
+		cout << "'I am just a servant of the King to the North, come looking for the Great Goblin Shaman of this village. I mean you no harm.'" << endl;
+		system("pause");
 
-		cout << "Here is scene 3" << endl; //just a test to see if get to scene 3
+		cout << "The door of the large hut opens slowly. An old Goblin steps out, clad in ceremonial garb." << endl;
+		cout << "'I am who you seek,' the Goblin says, 'how can I help you, Sur Vant?" << endl;
+		
+		flag = false; //resets flag for next response
+		do  //asks user for a response to the question, does not actually change anything the goblin will say, just trying to keep the player from reading too much without interaction
+		{
+			if (flag == true)
+			{
+				cout << "Invalid input, please try again..." << endl;
+			}
+			cout << "1. The Queen is sick, and doesn't seem like herself..." << endl;
+			cout << "2. I've heard you know a bit about possessions..." << endl;
+			cout << "3. A friend of mine is possessed and I'd like your help." << endl;
+			cin >> userNum;
+			flag = true;
+		} while (userNum != 1 && userNum != 2 && userNum != 3); //checks user's input to make sure it is a valid response
+
+		cout << "'Possession...that's a tricky one,' he scratches his chin and contemplates." << endl;
+		cout << "He abruptly shuffles back into his hut.  After a few moments he returns with an old book." << endl;
+		cout << "The book looks as if it has been around for ages..." << endl;
+		cout << "'I may know of a cure, but only one who has shown their might can receive knowledge from our sacred tomes.'";
+		cout << "He shouts, 'Bring out Fliggurt!'" << endl;
+		system("pause");
+
+		cout << "You hear something rolling your way.  Around one of the huts comes a wheeled cage, being pushed by a number of Goblins." << endl;
+		cout << "'Behold, this is FLiggurt!' the Shaman exclaims. 'If you can best him, I will share our secret...'" << endl;
+		cout << "One of the Goblins steps around and unlocks the door to the cage. With a squeak, the door opens and a blur shoots towards you..." << endl;
+
+		fightResult = Battle("monster", 1, 1, 1, 10, 10);
+
+		if(!fightResult) //the User died
+		{
+			return 1; //the user failed the quest return 1
+		}
+
+		cout << "Before the final blow is struck, the Shaman yells, 'Stop! I've seen enough...'" << endl;
+		cout << "The Shaman hurriedly walks over to the body of Fliggurt." << endl;
+		cout << "He whispers something and you see the body of Fliggurt begin to glow." << endl;
+		cout << "His wounds begin to heal, and he begins to breath again." << endl;
+		system("pause");
+
+		cout << "The Shaman turns back to you, 'so now that we have settled that...'" << endl;
+		cout << "'The remedy is actually pretty easy.  You just need to find the Bloodroot.'" << endl;
+		cout << "'It looks like this,' he shows you a drawing from the book." << endl;
+		cout << "'Once you have that, you just make it into a tea and make the possessed drink it,' the Shaman recites." << endl;
+		cout << "'I've seen the roots around this forest.  Go find some and help your friend!'" << endl;
+		cout << "You thank the Goblins and head back out into the forest to find the Bloodroot." << endl;
 		sceneComplete = true;
 	} while (sceneComplete == false);
 
+	cout << endl;
 	system("pause");
 
 	////////////////////////////////////////
