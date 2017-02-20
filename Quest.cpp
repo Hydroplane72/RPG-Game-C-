@@ -116,7 +116,7 @@ int getQuest2()
 
 		//Scene 1 - going over the mountain
 		cout << "You are trecking over the mountains to get the jewel back." << endl;
-		//system("pause");
+		system("pause");
 		if(monsterCheck(2)) 
 		{
 			cout << "A monster has found you!" << endl;
@@ -132,7 +132,7 @@ int getQuest2()
 			cout << "You nurse your injuries as you continue on." << endl;
 		}
 		cout << "As you continue to walk you see the faint outline of a building." << endl;
-		//system("pause");
+		system("pause");
 		if(monsterCheck(4)) 
 		{
 			cout << "A monster has found you!" << endl;
@@ -161,7 +161,7 @@ int getQuest2()
 			cout << "You nurse your injuries as you continue on." << endl;
 		}
 		cout << "With a nod you realise that the castle is Gregors Castle." << endl;
-		//system("pause");
+		system("pause");
 
 		//Clear the Screen
 		system("cls");
@@ -216,9 +216,9 @@ int getQuest2()
 		cout << "Success!" << endl;
 		cout << "You have made it inside the castle" << endl;
 
-		//system("pause");
+		system("pause");
 		//Clear the Screen
-		//system("cls");
+		system("cls");
   //Scene 3 - Inside Castle
 	//Throne room, Queen�s Quarters, King�s quarters, Sanctuary, Guard Room or Great hall
 
@@ -247,7 +247,7 @@ int getQuest2()
 		//out put result
 		cout << "As you walk into the " << rooms[roomNum] << ".";
 		cout << "You see the jewel and its guardian. The guardian is sleeping." << endl;
-		//system("pause");
+		system("pause");
 		if(monsterCheck(5)) //Should be 50/50 chance
 		{
 			cout<< "The Guardian has Awoken!" << endl;
@@ -264,9 +264,9 @@ int getQuest2()
 			cout <<"Quietly you steal the jewel back." << endl;
 		}
 
-		//system("pause");
+		system("pause");
 		//Clear the Screen
-		//system("cls");
+		system("cls");
 	 //Scene 4 - Exit the Castle
 
 		/*
@@ -298,7 +298,7 @@ int getQuest2()
 			return 1; //the user failed the quest return 1
 		}
 		cout << "You have defeated the monster and escape to the mountains." << endl;
-		//system("pause");
+		system("pause");
 
 		//Clear the Screen
 		//system("cls");
@@ -331,7 +331,7 @@ int getQuest2()
 				return 1; //the user failed the quest return 1
 			}
 			cout << "The monsters death may have alerted others to your position.\nYou continue on quickly." << endl;
-			//system("pause");
+			system("pause");
 		}
 		cout << "The winds are howling and you can hear the monsters still chasing you in the mountains." << endl;
 		if(monsterCheck(6)) 
@@ -360,9 +360,9 @@ int getQuest2()
 			return 1; //the user failed the quest return 1
 		}
 		cout << "The kings guard is on its way." << endl;
-		//system("pause");
+		system("pause");
 		//Clear the Screen
-		//system("cls");
+		system("cls");
 		}
 	
 	//Give the jewel to the king
@@ -495,7 +495,7 @@ int getQuest3()
 					sceneComplete = false;
 					repeat = true;
 
-					//system("pause");
+					system("pause");
 				}
 				else if (repeat == true)
 				{
@@ -519,7 +519,7 @@ int getQuest3()
 					sceneComplete = false;
 					repeat = true;
 
-					//system("pause");
+					system("pause");
 				}
 				else if (repeat == true)//second time through
 				{
@@ -540,7 +540,7 @@ int getQuest3()
 				sceneComplete = false;
 				repeat = true;
 
-				//system("pause");
+				system("pause");
 			}
 			flag = false; //resets flag
 		}
@@ -583,7 +583,7 @@ int getQuest3()
 		}
 	} while (sceneComplete == false);
 
-	//system("pause");
+	system("pause");
 	
 	/////////////////////////////////////
 	////Scene 2 - Into the Forest////////
@@ -659,7 +659,7 @@ int getQuest3()
 			cout << "You take out your map, and make note of the approximate location of these ruins, for further exploration at a later date." << endl;
 			cout << "You proceed out of the clearing, and deeper into the forest." << endl;
 
-			//system("pause");
+			system("pause");
 
 			/////////////////////////
 			//Last Encounter Chance//
@@ -701,7 +701,7 @@ int getQuest3()
 		sceneComplete = true;
 	} while (sceneComplete == false);
 
-	//system("pause");
+	system("pause");
 	////////////////////////////////////////////
 	////Scene 3 - Speaking to the shaman////////
 	///////////////////////////////////////////
@@ -713,7 +713,7 @@ int getQuest3()
 		sceneComplete = true;
 	} while (sceneComplete == false);
 
-	//system("pause");
+	system("pause");
 
 	////////////////////////////////////////
 	////Scene 4 - Finding the Herb//////////
@@ -726,7 +726,7 @@ int getQuest3()
 		sceneComplete = true;
 	} while (sceneComplete == false);
 
-	//system("pause");
+	system("pause");
 
 	////////////////////////////////////////
 	////Scene 5 - Healing the Queen/////////
@@ -739,7 +739,7 @@ int getQuest3()
 		sceneComplete = true;
 	} while (sceneComplete == false);
 
-	//system("pause");
+	system("pause");
 
 	return 2; //should return that quest 3 has been completed
 }
