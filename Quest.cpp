@@ -376,6 +376,8 @@ int getQuest2()
 //2/8/2017 - 6pm - 6:30 pm, 9:30 pm - 12:00 am
 //2/9/2017 - 4:30 pm - 6:30 pm
 //2/15/2017 - 10:30 pm - 11:30 pm
+//2/16/2017 - 5:00 pm - 7:00 pm
+//2/19/2017 - 7:00 pm - 7:30 pm
 int getQuest3()
 {
 	int userNum = 0; //variable for user selection during dialogue
@@ -690,18 +692,117 @@ int getQuest3()
 		////////////////////////////////////////////////////////////////////////////////
 		else if (userNum == 2)
 		{
+			////////////////////////////
+			//First Encounter chance////
+			////////////////////////////
 
+			cout << "You decide to venture down the path that seems to be traveled fairly regularly." << endl;
+			cout << "As you get a little ways along the path, you hear a branch snap..." << endl;
+			if (monsterCheck(3)) //checks to see if a random monster appears
+			{
+				/////
+				/////
+				///// add monster fight
+				/////
+				/////
+				cout << "You check yourself over and patch up your wounds." << endl;
+			}
+			else
+			{
+				cout << "A deer, startled by your movement, bolts across the path, and disappears into the forest.";
+			}
+			cout << "You continue on the path, which winds around a bend." << endl << endl;
+
+			system("pause");
+
+			///////////////////////////
+			//Second Encounter Chance//
+			///////////////////////////
+			cout << "The path exits into a clearing.  It is dark, but you notice some ruins." << endl;
+			cout << "As you approach the ruins, a shape stands out.  It looks humanoid...but maybe not?  You can't tell..." << endl;
+			if (monsterCheck(4))
+			{
+				/////
+				/////
+				///// add monster fight
+				/////
+				/////
+				cout << "You bandage yourself up, and take a quick breather." << endl;
+			}
+			else
+			{
+				cout << "The shape appears to be a statue of some sort of humanoid beast, left in tact from whatever these ruins used to be." << endl;
+				cout << "It poses no threat, but makes you wonder what used to live here..." << endl;
+			}
+			cout << "You take out your map, and make note of the approximate location of these ruins, for further exploration at a later date." << endl;
+			cout << "You find the path again and proceed out of the clearing, deeper into the forest." << endl;
+
+			system("pause");
+
+			///////////////////////////
+			//Third Encounter Chance//
+			///////////////////////////
+			cout << "As you venture deeper, you notice a strange silence." << endl;
+			if (monsterCheck(6))
+			{
+				/////
+				/////
+				///// add monster fight
+				/////
+				/////
+				cout << "You rub some dirt on your wounds and hope for the best." << endl;
+			}
+			else
+			{
+				cout << "The silence is unnerving, but only a psychological threat." << endl;
+			}
+			cout << "You notice a small hut up ahead." << endl;
+
+			system("pause");
+
+			///////////////////////////
+			//Fourth Encounter Chance//
+			///////////////////////////
+			cout << "You cautiously approach the hut.  There are no obvious signs of life." << endl;
+			cout << "You slowly crack the door open." << endl;
+			if (monsterCheck(8))
+			{
+				/////
+				/////
+				///// add monster fight
+				/////
+				/////
+				cout << "Is that your blood....or its...you dont know, but you wipe if off none the less." << endl;
+			}
+			else
+			{
+				cout << "The hut looks as if it has been ransacked by bandits." << endl;
+				cout << "The only thing left of note is a mangled skeleton." << endl;
+			}
+
+			system("pause");
+
+			/////////////////////////
+			//Last Encounter Chance//
+			/////////////////////////
+			cout << "You can hear something in the distance. It sounds like...a village?" << endl;
+			cout << "As you get closer, you can make out voices, although you can't understand them." << endl;
+
+			if (monsterCheck(9))
+			{
+				cout << "You are almost to the voices when something bursts out in front of you!" << endl;
+				/////
+				/////
+				///// add monster fight
+				/////
+				/////
+				cout << "You take a few moments to recuperate and stop the bleeding." << endl;
+			}
+			else
+			{
+				cout << "You step out of the trees, and into what looks like a small village. " << endl;
+			}
 		}
-
-		else //if userNum is anything other than 1 or 2 after being validated
-		{
-			cout << "An error has occurred." << endl;
-		}
-
-		sceneComplete = true;
-	} while (sceneComplete == false);
-
-	system("pause");
 	////////////////////////////////////////////
 	////Scene 3 - Speaking to the shaman////////
 	///////////////////////////////////////////
