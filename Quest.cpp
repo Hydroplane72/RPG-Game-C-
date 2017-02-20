@@ -839,7 +839,7 @@ int getQuest3()
 	cout << "'Possession...that's a tricky one,' he scratches his chin and contemplates." << endl;
 	cout << "He abruptly shuffles back into his hut.  After a few moments he returns with an old book." << endl;
 	cout << "The book looks as if it has been around for ages..." << endl;
-	cout << "'I may know of a cure, but only one who has shown their might can receive knowledge from our sacred tomes.'";
+	cout << "'I may know of a cure, but only one who has shown their might can receive knowledge from our sacred tomes.'" << endl;
 	cout << "He shouts, 'Bring out Fliggurt!'" << endl;
 	system("pause");
 
