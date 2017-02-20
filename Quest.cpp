@@ -620,7 +620,6 @@ int getQuest3()
 			////////////////////////////
 			if (monsterCheck(6)) //checks to see if a random monster appears
 			{
-			
 				fightResult = Battle("monster", 1, 1, 1, 10, 10);
 
 				if(!fightResult) //the User died
@@ -643,8 +642,7 @@ int getQuest3()
 			cout << "A clearing opens in front of you.  It is dark, but you notice some ruins." << endl;
 			cout << "As you approach the ruins, a shape stands out.  It looks humanoid...but maybe not?  You can't tell..." << endl;
 			if (monsterCheck(8))
-			{
-							
+			{		
 				fightResult = Battle("monster", 1, 1, 1, 10, 10);
 
 				if(!fightResult) //the User died
@@ -700,11 +698,12 @@ int getQuest3()
 			cout << "As you get a little ways along the path, you hear a branch snap..." << endl;
 			if (monsterCheck(3)) //checks to see if a random monster appears
 			{
-				/////
-				/////
-				///// add monster fight
-				/////
-				/////
+				fightResult = Battle("monster", 1, 1, 1, 10, 10);
+
+				if(!fightResult) //the User died
+				{
+					return 1; //the user failed the quest return 1
+				}
 				cout << "You check yourself over and patch up your wounds." << endl;
 			}
 			else
@@ -722,11 +721,12 @@ int getQuest3()
 			cout << "As you approach the ruins, a shape stands out.  It looks humanoid...but maybe not?  You can't tell..." << endl;
 			if (monsterCheck(4))
 			{
-				/////
-				/////
-				///// add monster fight
-				/////
-				/////
+				fightResult = Battle("monster", 1, 1, 1, 10, 10);
+
+				if(!fightResult) //the User died
+				{
+					return 1; //the user failed the quest return 1
+				}
 				cout << "You bandage yourself up, and take a quick breather." << endl;
 			}
 			else
@@ -745,11 +745,12 @@ int getQuest3()
 			cout << "As you venture deeper, you notice a strange silence." << endl;
 			if (monsterCheck(6))
 			{
-				/////
-				/////
-				///// add monster fight
-				/////
-				/////
+				fightResult = Battle("monster", 1, 1, 1, 10, 10);
+
+				if(!fightResult) //the User died
+				{
+					return 1; //the user failed the quest return 1
+				}
 				cout << "You rub some dirt on your wounds and hope for the best." << endl;
 			}
 			else
@@ -767,11 +768,12 @@ int getQuest3()
 			cout << "You slowly crack the door open." << endl;
 			if (monsterCheck(8))
 			{
-				/////
-				/////
-				///// add monster fight
-				/////
-				/////
+				fightResult = Battle("monster", 1, 1, 1, 10, 10);
+
+				if(!fightResult) //the User died
+				{
+					return 1; //the user failed the quest return 1
+				}
 				cout << "Is that your blood....or its...you dont know, but you wipe if off none the less." << endl;
 			}
 			else
@@ -791,11 +793,12 @@ int getQuest3()
 			if (monsterCheck(9))
 			{
 				cout << "You are almost to the voices when something bursts out in front of you!" << endl;
-				/////
-				/////
-				///// add monster fight
-				/////
-				/////
+				fightResult = Battle("monster", 1, 1, 1, 10, 10);
+
+				if(!fightResult) //the User died
+				{
+					return 1; //the user failed the quest return 1
+				}
 				cout << "You take a few moments to recuperate and stop the bleeding." << endl;
 			}
 			else
