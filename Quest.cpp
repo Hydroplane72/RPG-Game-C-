@@ -869,6 +869,9 @@ bool Battle(string monsterName,int monsterLevel, int monsterAttack, int monsterH
 	{
 		cout << "Invalid! Try again: \n\n"
 		<< "1.) Fight\n2.) Run\n\n";
+		
+		
+		cin >> choice; ////////////////////Zach says - I think we need another cin here otherwise it is an infinite loop
 	}
 	
 	switch(choice)
