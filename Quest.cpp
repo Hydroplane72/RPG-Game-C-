@@ -708,7 +708,7 @@ int getQuest3()
 			}
 			else
 			{
-				cout << "A deer, startled by your movement, bolts across the path, and disappears into the forest.";
+				cout << "A deer, startled by your movement, bolts across the path, and disappears into the forest." << endl;
 			}
 			cout << "You continue on the path, which winds around a bend." << endl << endl;
 
