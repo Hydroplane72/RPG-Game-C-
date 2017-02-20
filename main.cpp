@@ -173,7 +173,7 @@ void startGame(string userName)
 			if(result = 1){
 				alive = false;
 			}
-		} while(alive) //until user dies
+		} while(alive); //until user dies
 	}
 }
 
