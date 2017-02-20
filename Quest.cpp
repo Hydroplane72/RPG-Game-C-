@@ -377,7 +377,7 @@ int getQuest2()
 //2/9/2017 - 4:30 pm - 6:30 pm
 //2/15/2017 - 10:30 pm - 11:30 pm
 //2/16/2017 - 5:00 pm - 7:00 pm
-//2/19/2017 - 7:00 pm - 7:30 pm
+//2/19/2017 - 7:00 pm - 7:30 pm, 9:30 pm - 12:45 am
 int getQuest3()
 {
 	int userNum = 0; //variable for user selection during dialogue
@@ -875,27 +875,149 @@ int getQuest3()
 	////////////////////////////////////////
 	////Scene 4 - Finding the Herb//////////
 	////////////////////////////////////////
-	sceneComplete = false;
-	do
-	{
+	sceneComplete = false;  //reset bool to false and use for when root is found
+	
+	int herbChance = 2; //using as a percentage to find the Bloodroot herb
 
-		cout << "Here is scene 4" << endl; //just a test to see if get to scene 4
-		sceneComplete = true;
+	cout << "You stumble around looking for the Bloodroot in the forest." << endl;
+	
+	do // loop for finding the Bloodroot
+	{
+		
+		if (monsterCheck(10 - herbChance)) // using the monster check to either find the herb, or fight a monster
+		{
+			cout << "You didn't find the herb...but you did find something else." << endl;
+			/////
+			/////
+			///// add monster fight
+			/////
+			/////
+			cout << "You take a few moments to recuperate and stop the bleeding." << endl;
+			cout << endl;
+			herbChance = herbChance + 2; //increases each subsequent chance of finding the root
+
+			cout << "You continue forward, looking for the Bloodroot" << endl;
+		}
+		else
+		{
+			cout << "You found it! You dig up the Bloodroot, and head off back towards the castle." << endl;
+			sceneComplete = true;
+		}
 	} while (sceneComplete == false);
 
+	cout << endl;
 	system("pause");
-
 	////////////////////////////////////////
 	////Scene 5 - Healing the Queen/////////
 	////////////////////////////////////////
-	sceneComplete = false;
-	do
+	cout << "As you enter the castle, you notice something is different." << endl;
+	cout << "Everything is darker...all of the candles are out, and there is a cold breeze coming down the hall." << endl;
+	cout << "You head towards the kitchen to make the Bloodroot into a tea." << endl;
+	cout << "As you approach the kitchen, something emerges from the shadows..." << endl;
+	
+	fightResult = Battle("monster", 1, 1, 1, 10, 10);
+
+	if(!fightResult) //the User died
 	{
+		return 1; //the user failed the quest return 1
+	}
 
-		cout << "Here is scene 5" << endl; //just a test to see if get to scene 5
-		sceneComplete = true;
-	} while (sceneComplete == false);
+	cout << endl;
+	system("pause");
 
+	cout << "'Is it safe now?' a feminine voice calls from the kitchen." << endl;
+	cout << "'Yes,' you reply.  The Queen's handmaiden emerges from the kitchens." << endl;
+	cout << "'Oh, hey, it's you! Things kind of went downhill after you left.'" << endl;
+	cout << "'Creatures started coming out of the Queen's chambers. I ran to find help, but everyone seems to be missing.'" << endl;
+	cout << "'Then something attacked me, but I was able to get in here and hide.'" << endl;
+	cout << "'Were you able to find the Shamans and a cure?' she asks." << endl;
+
+	flag = false; //resets flag for next response
+	do  //another conversation answer that doesn't really change much, just trying to keep the player from reading too much without any interaction
+	{
+		if (flag == true)
+		{
+			cout << "Invalid input, please try again..." << endl;
+		}
+		cout << "1. Do you know how to make Bloodroot tea?" << endl;
+		cout << "2. That depends...what's in it for me?" << endl;
+		cout << "3. Here is a Bloodroot. We need to make it into tea and have the Queen drink it." << endl;
+		cin >> userNum;
+		flag = true;
+	} while (userNum != 1 && userNum != 2 && userNum != 3); //checks user's input to make sure it is a valid response
+
+	if (userNum == 1 || userNum == 3)
+	{
+		cout << "'I've never made Bloodroot tea, but I've made regular tea...so hopefully its the same concept,' she replies." << endl;
+	}
+	else if (userNum == 2)
+	{
+		cout << "'I really don't think this is the time for that...if we get out of here alive I'm sure you can ask the King and Queen for something.'" << endl;
+		cout << "'Fine,' you acknowledge that this probably wasn't the best time for that." << endl;
+		cout << "'We need to make this into a tea,' you fully explain the remedy to her. " << endl;
+		cout << "'Easy peasy,' she says." << endl;
+	}
+
+	cout << "'Guard the door while I take care of this,' she says." << endl;
+	cout << "'No matter what happens, keep making the tea,' you tell her." << endl;
+	cout << "Just then, the door bursts open..." << endl;
+
+	fightResult = Battle("monster", 1, 1, 1, 10, 10);
+
+	if(!fightResult) //the User died
+	{
+		return 1; //the user failed the quest return 1
+	}
+
+	cout << endl;
+	system("pause");
+
+	cout << "'That was a close one,' the handmaiden looks relieved." << endl;
+	cout << "'The tea is done though!' she exclaims." << endl;
+	cout << "'How about I stay here, and you can give the tea to the Queen,' she smiles." << endl;
+	cout << "You nod, grab the tea from the handmaiden and set off towards the Queen's chambers again." << endl;
+
+	cout << endl;
+	cout << "As you approach the Queen's room, you notice a figure at the door. " << endl;
+	cout << "You set the tea down in anticipation of what will happen next..." << endl;
+
+	fightResult = Battle("monster", 1, 1, 1, 10, 10);
+
+	if(!fightResult) //the User died
+	{
+		return 1; //the user failed the quest return 1
+	}
+
+	cout << endl;
+	system("pause");
+
+	cout << "Its body slumps to the floor. You take a second to collect yourself and the tea." << endl;
+	cout << "You kick open the door to the Queen's chamber." << endl;
+	cout << "The Queen is laying in the middle of the room, surrounded by the bones of what appear to be a number of castle guards." << endl;
+	cout << "'Back again?' she shouts,'You won't leave this time...'" << endl;
+	cout << "The queen transforms into some sort of creature, and charges at you." << endl;
+
+	fightResult = Battle("monster", 1, 1, 1, 10, 10);
+
+	if(!fightResult) //the User died
+	{
+		return 1; //the user failed the quest return 1
+	}
+
+	cout << endl;
+	system("pause");
+
+	cout << "Upon defeat, the Queen's body collapses to the ground; returned to normal shape at least." << endl;
+	cout << "You notice that, luckily, the cup of tea remained upright and is sitting close by." << endl;
+	cout << "The cup is still warm.  You pick it up and pour it into the Queen's agape mouth." << endl;
+	cout << "Immediately, the room brightens, and the Queen's skin regains its color." << endl;
+	cout << "Her eyes open slowly...'Thank you...' she stammers." << endl;
+	cout << "'For the last number of weeks I have been a slave in my own body; aware of everything, but unable to do anything." << endl;
+	cout << "You help her sit up against her bed." << endl;
+	cout << "'If there is ever anything I can do to repay you...please, please....let me know'" << endl;
+	cout << "You leave the Queen to rest, and head back to the throne room to visit with the king" << endl;
+
+	cout << endl;
 	system("pause");
 
 	return 2; //should return that quest 3 has been completed
