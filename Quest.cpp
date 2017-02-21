@@ -192,7 +192,7 @@ int getQuest2()
 	 //Scene 1 - Mountains
 
 		//Scene 1 - going over the mountain
-		cout << "You are trecking over the mountains to get the jewel back." << endl;
+		cout << "You are trekking over the mountains to get the jewel back." << endl;
 		system("pause");
 		if(monsterCheck(2)) 
 		{
@@ -460,12 +460,12 @@ int getQuest3()
 	int userNum = 0; //variable for user selection during dialogue
 	bool flag = false; //generic flag variable
 	bool fightResult = false;
-	bool sceneComplete = false; //flag for whether or not to move on to scene 2 in the 3rd quest
+	bool sceneComplete = false; //flag for whether or not to move on to a new scene, only used in scenes where you can fail at moving on
 	bool repeat = false; //used to show if the player has gone back to a certain dialogue area
 
 	////////////////////////////////////////////////
 	//////Scene 1 - to the Queen's chambers/////////
-	////////////////i////////////////////////////////
+	////////////////////////////////////////////////
 	do
 	{
 	
@@ -518,7 +518,7 @@ int getQuest3()
 		////////////////////////////////
 		if (userNum == 1) 
 		{
-			if (repeat == false)
+			if (repeat == false) //used on the first time talking to her
 			{
 				cout << "Hand maiden says,'She hasn't been up for much talking lately, but you are more than welcome to try.'" << endl;
 				cout << "The hand maiden stands up and opens one of the large doors." << endl;
@@ -528,7 +528,7 @@ int getQuest3()
 				cout << "The Queen has collapsed in the corner of the room with her head in her hands." << endl;
 				cout << "As you approach, the Queen briefly looks up. 'Please, just go away' she whispers." << endl;
 			}
-			else if (repeat == true)
+			else if (repeat == true) //used on the second time talking to her
 			{
 				cout << "'Be careful,' she says, 'the Queen doesn't like to repeat herself, or people that meddle in her affairs...'" << endl;
 				cout << "You open the door and enter the Queen's room again." << endl;
