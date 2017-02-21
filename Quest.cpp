@@ -25,7 +25,7 @@ bool Battle(string, int, int, int, int, int); //stages battle sequence
 
 
 //Quest Prototypes
-//int getQuest1();
+int getQuest1();
 int getQuest2(); //quest 2 function
 
 int getQuest3();
@@ -43,7 +43,7 @@ int Quest::startQuest(int questNum)
 	//If statements to find the correct quest
 	if(questNum == 1)
 	{
-		// quest = getQuest1();
+		quest = getQuest1();
 	}
 	if (questNum == 2)
 	{
@@ -105,83 +105,151 @@ bool monsterCheck(int chance)
 	for a certain amount of time. This would allow for the user to read without having to click to get the next line
 	
 */
-
-int quest1(int questMenuSelection)
+/**
+	Quest 1 Created by Katherine A
+*/
+/*
+	1 = fail
+	2 = completed
+	3 = endless loop
+*/
+int getQuest1()
 {
-	if(questMenuSelection==1)
+	
+	int response1; //for user input
+	bool fightResult;
+	bool responseCorrect = false; //if user response is wrong
+	do //input check
 	{
-		int response1; //for user input
-			
-		cout<< "I got word that he was seen traveling through the forest with a bunch of other children,but that could have just been a pesant looking to collect their reward. ";
-	 	cout<< "With that you heard out to the forest in hopes of finding the boy.";
-	 	cout<< "Shortly after beiginning your journey into the forest, you come upon a young woman all alone in the woods.";
-	 	cout<< "Select a response:";
-	 	cout<< "1. Greet her (ask her name) and ask her if she has heard anything about a group of children being escorted through the forest";
-	 	cout<< "2. Continue on your way without acknowledging her.";
-	 	cin>> response1;
-	 	
-		if(response1==1)
+		cout<< "I got word that he was seen traveling through the forest with a bunch of other children,but that could have just been a pesant looking to collect their reward. "<<	endl;
+	 	cout<< "With that you heard out to the forest in hopes of finding the boy."<< endl;
+	 	cout<< "Shortly after beiginning your journey into the forest, you come upon a young woman all alone in the woods."<< endl;
+	 	cout<< "Select a response:" <<endl;
+	 	cout<< "1. Greet her (ask her name) and ask her if she has heard anything about a group of children being escorted through the forest"<< endl;
+	 	cout<< "2. Continue on your way without acknowledging her."<< endl;
+		cin>> response1;
+		if(response1 ==1 || response1 ==2)
 		{
-	 			cout<< "I am Anias.  I did hear that the organized crime group in the next shire over was doing something with children.  I'm not entirely sure what, but I do know someone who could give us more information.";
-				cout<< "Please select one of the following options:";
-				cout<< "1. You decide you don't like Anias's idea and stay in the forest.";
-				cout<< "2. You decide to follow Anias's lead.";
+			responseCorrect = true;
+		}
+	} while(!responseCorrect);
+	system("cls");
+ 	
+	if(response1==1)
+	{
+		do //input check
+		{
+			cout<< "I am Anias.  I did hear that the organized crime group in the next shire over was doing something with children.  I'm not entirely sure what, but I do know someone who could give us more information."<< endl;
+			cout<< "Please select one of the following options:"<< endl;
+			cout<< "1. You decide you don't like Anias's idea and stay in the forest."<< endl;
+			cout<< "2. You decide to follow Anias's lead."<< endl;
+			cin>> response1;
+			if(response1 ==1 || response1 ==2)
+			{
+				responseCorrect = true;
+			}	
+		}while (!responseCorrect);
+		system("cls");
+		if(response1==2)
+		{
+			do //input check
+			{
+				cout<< "You and Anias travel to the next shire and enter the pub in hopes of making contact with Anias's lead.  You order a drink at the bar and take a seat after noticing that Anias is nowhere to be found." << endl;
+			 	cout<< "A bar maid walks over and says, you have been summoned.  Please follow me."<< endl;
+			 	cout<<"you do one of the following: "<< endl;
+				cout<< "1. Follow the bar maid"<< endl;
+				cout<< "2. You tell the bar maid that you are just fine where you are and stay put."<< endl;
 				cin>> response1;
-
-	 			if(response1==2)
+				if(response1 ==1 || response1 ==2)
 				{
-	 				cout<< "You and Anias travel to the next shire and enter the pub in hopes of making contact with Anias's lead.  You order a drink at the bar and take a seat after noticing that Anias is nowhere to be found.";
-				 	cout<< "A bar maid walks over and says, you have been summoned.  Please follow me.";
-				 	cout<<"you do one of the following: ";
-					cout<< "1. Follow the bar maid";
-					cout<< "2. You tell the bar maid that you are just fine where you are and stay put.";
+					responseCorrect = true;
+				}
+			} while (!responseCorrect);
+			system("cls");
+			
+			if(response1==1)
+			{
+				do//input check
+				{
+					cout<< "You are taken into a smoke filled back room.  A Goblin by the name of Ted invites you to sit down"<< endl;
+					cout<< "Wher is Anias? you ask.  She has been stored for the moment, just in case you don't check out, Ted responds folding his hands."<< endl;
+					cout<< "I'm not here to expose your operation.  I am only here to find a boy.  He has dark hair and green eyes."<< endl;
+					cout<< "I may have knowledge of such a boy.  What would you want with such a boy asks Ted."<< endl;
+					cout<< "Select one of the following responses: "<< endl;
+					cout<< "1. I am looking to do with a boy what I wish.  That should not concern you."<< endl;
+					cout<< "2. I am looking for the prince.  It is imparative that I return him to his royal highness at once."<< endl;
 					cin>> response1;
-					if(response1==1)
+					if(response1 ==1 || response1 ==2)
 					{
-						cout<< "You are taken into a smoke filled back room.  A Goblin by the name of Ted invites you to sit down";
-						cout<< "Wher is Anias? you ask.  She has been stored for the moment, just in case you don't check out, Ted responds folding his hands.";
-						cout<< "I'm not here to expose your operation.  I am only here to find a boy.  He has dark hair and green eyes.";
-						cout<< "I may have knowledge of such a boy.  What would you want with such a boy asks Ted.";
-						cout<< "Select one of the following responses: ";
-						cout<< "1. I am looking to do with a boy what I wish.  That should not concern you.";
-						cout<< "2. I am looking for the prince.  It is imparative that I return him to his royal highness at once.";
-						cin>> response1;
+						responseCorrect = true;
 					}
-						if(response1=1)
-						{
-							cout<< "Very well, Ted responds. Bring six silver shillings to the cavern of the unknown tommorow at twilight.";
-							cout<<"Anias is then released from a near by room.  The two of you leave the bar and find an inn to stay in for the night.";
-							cout<<"  Hey Anias, do you have any money on you?, you ask.  Not a cent, she responds.  You shake your purse with the remaining 4 shillings you have and pay 1 shilling for room and board for the two of you.";
-							cout<< "At dusk the next day you head to the cavern of the unknown.  It is especially dark as it is twilight.";
-							cout<< "Shows up with a chain gang of young boys.  Select the one that suits your tastes, prompts the ogre:";
-							cout<< "You look at all of the boys thouroughly and find the prince by the birthmark on his hand.  I will have this one, you tell the ogre.";
-							cout<< "That will be 10 Silver Shillings, says the Ogre.  I thought It would be six, you argue.  Either way, I suppose it was bound to end this way, you say as you draw your sword.";
-						// fight scene *4
-						}
-						else if(response1==2)
-						{
-							cout<< "I suppose that's the way it is, the goblin said as Anias is taken out of the closet and both of you have your throats cut.";
-							//mainMenu;
-						}
-						else cout<< "You have entered an invalid value.  Please enter a 1 or a 2.";
-				} 
+				} while (!responseCorrect);
+				system("cls");
+			
+				if(response1=1)
+				{
+					cout<< "Very well, Ted responds. Bring six silver shillings to the cavern of the unknown tommorow at twilight."<< endl;
+					cout<<"Anias is then released from a near by room.  The two of you leave the bar and find an inn to stay in for the night."<< endl;
+					cout<<"  Hey Anias, do you have any money on you?, you ask.  Not a cent, she responds.  You shake your purse with the remaining 4 shillings you have and pay 1 shilling for room and board for the two of you."<< endl;
+					cout<< "At dusk the next day you head to the cavern of the unknown.  It is especially dark as it is twilight."<< endl;
+					cout<< "Shows up with a chain gang of young boys.  Select the one that suits your tastes, prompts the ogre:"<< endl;
+					cout<< "You look at all of the boys thouroughly and find the prince by the birthmark on his hand.  I will have this one, you tell the ogre."<< endl;
+					cout<< "That will be 10 Silver Shillings, says the Ogre.  I thought it would be six, you argue.  Either way, I suppose it was bound to end this way, you say as you draw your sword."<< endl;
+					
+					// fight scene
+					fightResult = Battle("monster", 1, 1, 1, 10, 10);
+
+					if(!fightResult) //the User died
+					{
+						return 1; //the user failed the quest return 1
+					}
+				}
+				else if(response1==2)
+				{
+					cout<< "I suppose that's the way it is, the goblin said as Anias is taken out of the closet and both of you have your throats cut."<< endl;
+					return 2; //you failed
+				}
+			}
 		}
-		else if (response1==1)	
+		else if (response1==1) //Fight endless
 		{
-		"You continue to wander in the forest and come upon a monster.";
-		//fight class
-		}
-		else if (response1==2)	
+			cout <<"You continue to wander in the forest and come upon monsters."<< endl;
+			
+			bool alive = true; //The user is alive
+			do
+			{
+				
+				/*
+					Insert fight here
+					result = fightResult();
+				*/
+				alive =Battle("monster",1,1,1,10,10);
+				
+			} while(alive); //until user dies
+			return 3; //end quest fight endless
+		} 
+	}
+	else if (response1==2)	//fight endless
+	{
+		cout <<"You continue to wander in the forest and come upon monsters."<< endl;
+		
+		bool alive = true; //The user is alive
+		do
 		{
-		"You continue to wander in the forest and come upon a monster.";
-		//fight class
-		}
-		else cout<< "Please enter a 1 or 2";
-} 	
-				 
-		else cout<< "Please enter a 1 or 2.";
-			 
-return 1;
+			
+			/*
+				Insert fight here
+				result = fightResult();
+			*/
+			alive =Battle("monster",1,1,1,10,10);
+			
+		} while(alive); //until user dies
+		return 3;//end quest fight endless
+	}
+	
+	cout<< "Congradulations you completed quest 1" << endl;
+	system("pause");		 
+	return 2;
 }
 int getQuest2()
 {
@@ -192,7 +260,7 @@ int getQuest2()
 	 //Scene 1 - Mountains
 
 		//Scene 1 - going over the mountain
-		cout << "You are trekking over the mountains to get the jewel back." << endl;
+		cout << "You are trecking over the mountains to get the jewel back." << endl;
 		system("pause");
 		if(monsterCheck(2)) 
 		{
@@ -448,7 +516,6 @@ int getQuest2()
 	return 2;
 }
 
-
 //Zach Smith
 //2/8/2017 - 6pm - 6:30 pm, 9:30 pm - 12:00 am
 //2/9/2017 - 4:30 pm - 6:30 pm
@@ -460,12 +527,12 @@ int getQuest3()
 	int userNum = 0; //variable for user selection during dialogue
 	bool flag = false; //generic flag variable
 	bool fightResult = false;
-	bool sceneComplete = false; //flag for whether or not to move on to a new scene, only used in scenes where you can fail at moving on
+	bool sceneComplete = false; //flag for whether or not to move on to scene 2 in the 3rd quest
 	bool repeat = false; //used to show if the player has gone back to a certain dialogue area
 
 	////////////////////////////////////////////////
 	//////Scene 1 - to the Queen's chambers/////////
-	////////////////////////////////////////////////
+	////////////////i////////////////////////////////
 	do
 	{
 	
@@ -518,7 +585,7 @@ int getQuest3()
 		////////////////////////////////
 		if (userNum == 1) 
 		{
-			if (repeat == false) //used on the first time talking to her
+			if (repeat == false)
 			{
 				cout << "Hand maiden says,'She hasn't been up for much talking lately, but you are more than welcome to try.'" << endl;
 				cout << "The hand maiden stands up and opens one of the large doors." << endl;
@@ -528,7 +595,7 @@ int getQuest3()
 				cout << "The Queen has collapsed in the corner of the room with her head in her hands." << endl;
 				cout << "As you approach, the Queen briefly looks up. 'Please, just go away' she whispers." << endl;
 			}
-			else if (repeat == true) //used on the second time talking to her
+			else if (repeat == true)
 			{
 				cout << "'Be careful,' she says, 'the Queen doesn't like to repeat herself, or people that meddle in her affairs...'" << endl;
 				cout << "You open the door and enter the Queen's room again." << endl;
@@ -1100,11 +1167,8 @@ int getQuest3()
 	return 2; //should return that quest 3 has been completed
 }
 
-
-
 // Battle System by Gabriel Lockner
 // Implemented February 19, 2017
-
 bool Battle(string monsterName, int monsterLevel, int monsterAttack, int monsterHealth, int playerAttack, int playerHealth)
 {
 	int choice;
@@ -1122,9 +1186,7 @@ bool Battle(string monsterName, int monsterLevel, int monsterAttack, int monster
 	{
 		cout << "Invalid! Try again: \n\n"
 		<< "1.) Fight\n2.) Run\n\n";
-		
-		
-		cin >> choice; ////////////////////Zach says - I think we need another cin here otherwise it is an infinite loop
+		cin >> choice; //Zach says - I think we need another cin here otherwise it is an infinite loop -Matt says true
 	}
 	
 	switch(choice)
