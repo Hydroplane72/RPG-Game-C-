@@ -8,7 +8,8 @@ class Quest
 	public:
 		Quest();
 		//gets the quest scene info
-		static int startQuest(int);
+		int startQuest(int);
+		bool Battle(string monsterName,int monsterLevel, int monsterAttack, int monsterHealth, int playerAttack, int playerHealth);
 	
 };
 

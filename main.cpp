@@ -15,6 +15,9 @@
 */
 //This is a text-based Role-Playing game where a player makes a character then goes on a quest, 
 //defeating bad guys/monsters on the way.
+#include "Character.h"
+#include "Creature.h"
+#include <ctime>
 #include <iostream>
 #include "Quest.h"
 #include <string>
@@ -24,15 +27,19 @@ void menu();
 int menuSelect();
 void startGame(string);
 int questMenu();
+int randNum();
 
 
 int main()
 {
 	const int startGameNum = 1; //number that is Start game
+	const int numberOfNames = 5; //number of names in the Names array
 	const string gameName = "Game Name"; //string for game name, so that we can easily change the name of the game
 	string userName; //user defined name
 	int menuNum;
 	
+	//array that holds the names that can be randomly assigned to a creature vvv
+	string Names[numberOfNames] = {"Goblin", "Rat", "Ogre", "Snake", "Dragon"};
 	
 	cout << "Welcome to " + gameName << endl;
 	cout << "Choose what you would like to do:" << endl;
@@ -166,7 +173,7 @@ void startGame(string userName)
 			if(result = 1){
 				alive = false;
 			}
-		} while(alive) //until user dies
+		} while(alive); //until user dies
 	}
 }
 
