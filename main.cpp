@@ -113,7 +113,8 @@ void startGame(string userName)
 		*/
 		if (questMenuSelection == 1)
 		{
-			//questCompletion =questSelect.startQuest(1);
+			system("cls");
+			questCompletion = questSelect.startQuest(1);
 		}
 		else if (questMenuSelection == 2)
 		{
@@ -161,19 +162,8 @@ void startGame(string userName)
 	
 	if(questCompletion ==3)//Endlessly fight monsters till user dies
 	{
-		bool alive = true; //The user is alive
-		int result = 0;
-		do
-		{
-			/*
-				Insert fight here
-				result = fightResult();
-			*/
-			
-			if(result = 1){
-				alive = false;
-			}
-		} while(alive); //until user dies
+		//Create new quest class to battle with
+		cout<< "You fought bravely fighting monster after monster before succombing to your wounds." << endl;
 	}
 }
 
@@ -204,4 +194,3 @@ int questMenu()
 
 	return menuNum;
 }
-
