@@ -37,7 +37,7 @@ int Creature::GetHP()
  return hp;
 }
 
-std::string Creature::GetName();
+std::string Creature::GetName()
 {
  return nm;
 }
@@ -51,3 +51,4 @@ bool Creature::Run()
 {
  return true;
 }
+

@@ -14,6 +14,7 @@ getQuest2()
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
+#include <string>
 using namespace std;
 
 //ProtoTypes
@@ -220,7 +221,7 @@ int getQuest2()
 		//Clear the Screen
 		system("cls");
   //Scene 3 - Inside Castle
-	//Throne room, Queen�s Quarters, King�s quarters, Sanctuary, Guard Room or Great hall
+	//Throne room, Queen?s Quarters, King?s quarters, Sanctuary, Guard Room or Great hall
 
 	//Let user choose rooms to go into
 	//Array of rooms
@@ -382,15 +383,16 @@ int getQuest3()
 {
 	int userNum = 0; //variable for user selection during dialogue
 	bool flag = false; //generic flag variable
-	bool fightResult;
-		sceneComplete = false, //flag for whether or not to move on to scene 2 in the 3rd quest
-		repeat = false; //used to show if the player has gone back to a certain dialogue area
+	bool fightResult = false;
+	bool sceneComplete = false; //flag for whether or not to move on to scene 2 in the 3rd quest
+	bool repeat = false; //used to show if the player has gone back to a certain dialogue area
 
 	////////////////////////////////////////////////
 	//////Scene 1 - to the Queen's chambers/////////
 	////////////////i////////////////////////////////
-	do 
+	do
 	{
+	
 		if (repeat == true) //used if this is the not the first time you have talked to the hand maiden
 		{
 			cout << "'Hello again,' the hand maiden exclaims, 'Did you find your answer?'" << endl;
@@ -592,8 +594,7 @@ int getQuest3()
 	/////////////////////////////////////
 	
 	sceneComplete = false;
-	do
-	{
+	
 		cout << endl;
 		cout << "Your journey takes you deep into the forest.  As you are walking, you notice a sort of trail." << endl;
 		cout << "The trail veers a little off to the South East, but looks much easier to travel." << endl;
@@ -1024,10 +1025,11 @@ int getQuest3()
 }
 
 
+
 // Battle System by Gabriel Lockner
 // Implemented February 19, 2017
 
-bool Battle(string monsterName,int monsterLevel, int monsterAttack, int monsterHealth, int playerAttack, int playerHealth)
+bool Battle(string monsterName, int monsterLevel, int monsterAttack, int monsterHealth, int playerAttack, int playerHealth)
 {
 	int choice;
 	
@@ -1091,4 +1093,5 @@ bool Battle(string monsterName,int monsterLevel, int monsterAttack, int monsterH
 		}
 	}
 }
+
 
