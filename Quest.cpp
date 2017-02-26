@@ -1,9 +1,9 @@
 /*
 This class is the quests class.
 It is supposed to Hold info and play the required quests.
-Programmed by Matthew Rozendaal: Total time: 6
+Programmed by Matthew Rozendaal: Total time: 8
 Structure
-getGoal()
+
 getQuest()
 getScene()
 monsterCheck()
@@ -11,24 +11,21 @@ getQuest2()
 */
 
 #include "Quest.h"
+#include "Creature.h"
+#include "Character.h"
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
 #include <string>
 using namespace std;
+//Quest Prototypes
+		int getQuest1();
+		int getQuest2(); 
+		int getQuest3();
 
-//ProtoTypes
-int rand(int min, int max); //Random Number Generator
-std::string getScene(int,int); //gets the quest scene info
-bool monsterCheck(int); //Simulates checking for monsters
 bool Battle(string, int, int, int, int, int); //stages battle sequence
 
 
-//Quest Prototypes
-int getQuest1();
-int getQuest2(); //quest 2 function
-
-int getQuest3();
 
 Quest::Quest()
 {
@@ -36,7 +33,7 @@ Quest::Quest()
 /**
 	Finds the Quest Number then finds the scene within that quest Number
 */
-int Quest::startQuest(int questNum)
+int Quest::startQuest(int)
 {
 	//return variable
 	int quest;
@@ -108,11 +105,7 @@ bool monsterCheck(int chance)
 /**
 	Quest 1 Created by Katherine A
 */
-/*
-	1 = fail
-	2 = completed
-	3 = endless loop
-*/
+
 int getQuest1()
 {
 	
@@ -211,40 +204,18 @@ int getQuest1()
 				}
 			}
 		}
-		else if (response1==1) //Fight endless
+		else if (response1==1) //end quest
 		{
-			cout <<"You continue to wander in the forest and come upon monsters."<< endl;
+			cout <<"You continue to wander in the forest fail the quest."<< endl;
 			
-			bool alive = true; //The user is alive
-			do
-			{
-				
-				/*
-					Insert fight here
-					result = fightResult();
-				*/
-				alive =Battle("monster",1,1,1,10,10);
-				
-			} while(alive); //until user dies
-			return 3; //end quest fight endless
+			return 1;
 		} 
 	}
 	else if (response1==2)	//fight endless
 	{
-		cout <<"You continue to wander in the forest and come upon monsters."<< endl;
+		cout <<"You continue to wander in the forest and fail the quest."<< endl;
 		
-		bool alive = true; //The user is alive
-		do
-		{
-			
-			/*
-				Insert fight here
-				result = fightResult();
-			*/
-			alive =Battle("monster",1,1,1,10,10);
-			
-		} while(alive); //until user dies
-		return 3;//end quest fight endless
+		return 1;
 	}
 	
 	cout<< "Congradulations you completed quest 1" << endl;
