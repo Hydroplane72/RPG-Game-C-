@@ -19,8 +19,11 @@
 #include "Creature.h"
 #include <ctime>
 #include <iostream>
-#include "Quest.h"
 #include <string>
+//Class headers
+#include "Quest.h"
+#include "Creature.h"
+#include "Character.h"
 using namespace std;
 
 void menu();
@@ -96,8 +99,11 @@ void startGame(string userName)
 {
 	//Variables
 	int questMenuSelection;
-	Quest questSelect;
 	int questCompletion;
+	//Class instances
+	Quest questSelect;
+	Character character(1, userName);
+	Creature monster(1, "Monster");
 	//Go through this till the user wishes to quit doing quests
 	do {
 		cout << endl;
@@ -147,24 +153,13 @@ void startGame(string userName)
 		/*
 		1 = fail
 		2 = completed
-		3 = endless loop
 		*/
-		//Quest Completion checks
-		if(questCompletion == 1 || questCompletion ==3) //if user dies or wants to kill monsters endlessly.
+		if(questCompletion == 1) //Stop quests
 		{
-			//get out of loop go back to menu
 			questMenuSelection =4;
 		}
-		//if 2 then do nothing
-		//Will allow for the user to do next quest
 		
 	} while(questMenuSelection !=4);
-	
-	if(questCompletion ==3)//Endlessly fight monsters till user dies
-	{
-		//Create new quest class to battle with
-		cout<< "You fought bravely fighting monster after monster before succombing to your wounds." << endl;
-	}
 }
 
 ////////////////////////////////////////////////////
