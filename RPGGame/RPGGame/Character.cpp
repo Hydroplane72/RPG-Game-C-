@@ -44,6 +44,13 @@ std::string Character::GetName()
 	return nm;
 }
 
+void Character::SetName(std::string name)
+{
+	nm = name;
+}
+
+
+
 void Character::reset()
 {
 	//resets character stuff for next fight

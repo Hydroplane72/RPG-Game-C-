@@ -20,6 +20,7 @@ public:
 	bool Run();
 	int GetHP();
 	std::string GetName();
+	void SetName(std::string name);
 	void reset();
 	void levelUp();
 };

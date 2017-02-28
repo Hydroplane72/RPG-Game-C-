@@ -1,7 +1,7 @@
 /*
 This class is the quests class.
 It is supposed to Hold info and play the required quests.
-Programmed by Matthew Rozendaal: Total time: 9
+Programmed by Matthew Rozendaal: Total time: 10
 getQuest()
 getScene()
 monsterCheck()
@@ -62,6 +62,7 @@ int Quest::startQuest(int questNum)
 void Quest::setUserName(std::string user)
 {
 	userName = user;
+	this->user.SetName(user);
 }
 
 /**
@@ -124,7 +125,7 @@ int Quest::getQuest1()
 	{
 		cout << "I got word that he was seen traveling through the forest with a bunch of other children,but that could have just been a pesant looking to collect their reward. " << endl;
 		cout << "With that you heard out to the forest in hopes of finding the boy." << endl;
-		cout << "Shortly after beiginning your journey into the forest, you come upon a young woman all alone in the woods." << endl;
+		cout << "Shortly after beginning your journey into the forest, you come upon a young woman all alone in the woods." << endl;
 		cout << "Select a response:" << endl;
 		cout << "1. Greet her (ask her name) and ask her if she has heard anything about a group of children being escorted through the forest" << endl;
 		cout << "2. Continue on your way without acknowledging her." << endl;
@@ -173,7 +174,7 @@ int Quest::getQuest1()
 				do//input check
 				{
 					cout << "You are taken into a smoke filled back room.  A Goblin by the name of Ted invites you to sit down" << endl;
-					cout << "Wher is Anias? you ask.  She has been stored for the moment, just in case you don't check out, Ted responds folding his hands." << endl;
+					cout << "Where is Anias? you ask.  She has been stored for the moment, just in case you don't check out, Ted responds folding his hands." << endl;
 					cout << "I'm not here to expose your operation.  I am only here to find a boy.  He has dark hair and green eyes." << endl;
 					cout << "I may have knowledge of such a boy.  What would you want with such a boy asks Ted." << endl;
 					cout << "Select one of the following responses: " << endl;
@@ -228,7 +229,7 @@ int Quest::getQuest1()
 		return 1;
 	}
 
-	cout << "Congrats you completed quest 1!" << endl;
+	cout << "Congratulations you completed quest 1!" << endl;
 	system("pause");
 	return 2;
 }
@@ -241,7 +242,7 @@ int Quest::getQuest2()
 	//Scene 1 - Mountains
 
 	//Scene 1 - going over the mountain
-	cout << "You are trecking over the mountains to get the jewel back." << endl;
+	cout << "You are trekking over the mountains to get the jewel back." << endl;
 	system("pause");
 	if (Quest::monsterCheck(2))
 	{
@@ -292,7 +293,7 @@ int Quest::getQuest2()
 		user.levelUp();//Level up the user
 		cout << "You nurse your injuries as you continue on." << endl;
 	}
-	cout << "With a nod you realise that the castle is Gregors Castle." << endl;
+	cout << "With a nod you realise that the castle is Gregor's Castle." << endl;
 	system("pause");
 
 	//Clear the Screen
@@ -512,15 +513,16 @@ int Quest::getQuest2()
 		}
 		monster.levelUp(); //Level up the monsters
 		user.levelUp();//Level up the user
-		cout << "The kings guard is on its way." << endl;
-		system("pause");
-		//Clear the Screen
-		system("cls");
+		cout << "The kings guard is now here to escort you to the castle." << endl;
+		
 	}
 
 	//Give the jewel to the king
 	cout << "The kingdom rejoices as the jewel is returned." << endl;
 	cout << "You have completed the Crown Jewel quest." << endl;
+	system("pause");
+	//Clear the Screen
+	system("cls");
 	return 2;
 }
 //Zach Smith
@@ -758,9 +760,9 @@ int Quest::getQuest3()
 		cin >> userNum;
 	} while (userNum != 1 && userNum != 2); //checks user's input to make sure it is a valid response
 
-											/////////////////////////////////////////////////////////////////////////////
-											//Keep traveling south, higher chance of fighting, but less fights possible//
-											/////////////////////////////////////////////////////////////////////////////
+	/////////////////////////////////////////////////////////////////////////////
+	//Keep traveling south, higher chance of fighting, but less fights possible//
+	/////////////////////////////////////////////////////////////////////////////
 	if (userNum == 1)
 	{
 		cout << "You decide to keep traveling south, through the undisturbed forest." << endl;
@@ -785,9 +787,10 @@ int Quest::getQuest3()
 		{
 			cout << "A deer, startled by your movement, bolts out from the brush, and disappears deeper into the forest.";
 		}
+		system("pause");
 		cout << "You continue hiking through the forest, which seems to be getting darker the deeper you go." << endl << endl;
 
-		//system("pause");
+		
 
 		///////////////////////////
 		//Second Encounter Chance//
@@ -804,13 +807,14 @@ int Quest::getQuest3()
 			}
 			monster.levelUp(); //Level up the monsters
 			user.levelUp();//Level up the user
-			cout << "You bandage yourself up, and take a quick breather." << endl;
+			cout << "You bandage yourself up from the wounds dealt to you, and take a quick breather." << endl;
 		}
 		else
 		{
 			cout << "The shape appears to be a statue of some sort of humanoid beast, left in tact from whatever these ruins used to be." << endl;
 			cout << "It poses no threat, but makes you wonder what used to live here..." << endl;
 		}
+		system("pause");
 		cout << "You take out your map, and make note of the approximate location of these ruins, for further exploration at a later date." << endl;
 		cout << "You proceed out of the clearing, and deeper into the forest." << endl;
 
@@ -840,6 +844,7 @@ int Quest::getQuest3()
 		{
 			cout << "You step out of the trees, and into what looks like a small village. " << endl;
 		}
+		system("pause");
 	}
 
 	////////////////////////////////////////////////////////////////////////////////
@@ -1055,14 +1060,22 @@ int Quest::getQuest3()
 		if (monsterCheck(10 - herbChance)) // using the monster check to either find the herb, or fight a monster
 		{
 			cout << "You didn't find the herb...but you did find something else." << endl;
-			/////
-			/////
-			///// add monster fight
-			/////
-			/////
+			
+			//Fighting
+			fightResult = Battle("A Dark Being");
+
+			if (!fightResult) //the User died
+			{
+				return 1; //the user failed the quest return 1
+			}
+			monster.levelUp(); //Level up the monsters
+			user.levelUp();//Level up the user
+
 			cout << "You take a few moments to recuperate and stop the bleeding." << endl;
 			cout << endl;
 			herbChance = herbChance + 2; //increases each subsequent chance of finding the root
+			
+			system("pause");
 
 			cout << "You continue forward, looking for the Bloodroot" << endl;
 		}
@@ -1201,7 +1214,7 @@ bool Quest::Battle(string monsterName)
 {
 	monster.setName(monsterName);
 	int choice;
-	cout << "A level " << monster.getLevel() << monster.GetName() << " is attacking!"
+	cout << "A level " << monster.getLevel() << " " <<monster.GetName() << " is attacking!"
 		<< "\n What do you do?\n\n";
 
 	cout << user.GetName() <<" HP:" << user.GetHP() << endl;
@@ -1252,7 +1265,11 @@ bool Quest::Battle(string monsterName)
 
 			do
 			{
-				cout << "1.) Fight\n2.) Run\n\n";
+
+				cout << user.GetName() << " HP:" << user.GetHP() << endl;
+				cout << monster.GetName() << " HP:" << monster.GetHP() << endl;
+				cout << "\n What do you want to do?\n";
+				cout << "1.) Fight \n2.) Run\n";
 				cin >> choice;
 			} while (choice != 1 && choice != 2);
 		}	

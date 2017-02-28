@@ -37,7 +37,7 @@ int main()
 {
 	const int startGameNum = 1; //number that is Start game
 	const int numberOfNames = 5; //number of names in the Names array
-	const string gameName = "Game Name"; //string for game name, so that we can easily change the name of the game
+	const string gameName = "An Old School text-Based Roleplaying Game"; //string for game name, so that we can easily change the name of the game
 	string userName; //user defined name
 	int menuNum;
 
