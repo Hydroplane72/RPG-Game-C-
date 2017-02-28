@@ -59,6 +59,19 @@ void Creature::reset()
 	def = lvl * 1.5;
 }
 
+void Creature::levelUp()
+{
+	lvl++;
+	reset();
+}
+
+void Creature::setName(std::string name)
+{
+	nm = name;
+}
+
+
+
 void Creature::Hit(int dmg)
 {
 	hp = hp - dmg;

@@ -52,6 +52,12 @@ void Character::reset()
 	def = lvl * 1.5;
 }
 
+void Character::levelUp()
+{
+	lvl++;
+	reset();
+}
+
 bool Character::Hit(int dmg)
 {
 	hp = hp - dmg;

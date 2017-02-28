@@ -21,6 +21,7 @@ public:
 	int GetHP();
 	std::string GetName();
 	void reset();
+	void levelUp();
 };
 
 #endif

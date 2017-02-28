@@ -21,6 +21,9 @@ public:
 	int getLevel();
 	std::string GetName();
 	void reset();
+	void levelUp();
+	void setName(std::string name);
+	
 };
 
 #endif

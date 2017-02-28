@@ -1,13 +1,20 @@
 /*
 This class is the quests class.
 It is supposed to Hold info and play the required quests.
-Programmed by Matthew Rozendaal: Total time: 8
-Structure
-
+Programmed by Matthew Rozendaal: Total time: 9
 getQuest()
 getScene()
 monsterCheck()
 getQuest2()
+
+Intigrated All the classes and quests. Got them to work together.
+Intigrated Items:
+Creature
+Main
+Character
+Quest 1
+Quest 3
+Battle function
 */
 
 #include "Quest.h"
@@ -107,7 +114,6 @@ for a certain amount of time. This would allow for the user to read without havi
 /**
 Quest 1 Created by Katherine A
 */
-
 int Quest::getQuest1()
 {
 
@@ -192,12 +198,14 @@ int Quest::getQuest1()
 					cout << "That will be 10 Silver Shillings, says the Ogre.  I thought it would be six, you argue.  Either way, I suppose it was bound to end this way, you say as you draw your sword." << endl;
 
 					// fight scene
-					fightResult = Battle("monster", 1, 1, 1, 10, 10);
+					fightResult = Battle("Ogre");
 
 					if (!fightResult) //the User died
 					{
 						return 1; //the user failed the quest return 1
 					}
+					monster.levelUp(); //Level up the monsters
+					user.levelUp();//Level up the user
 				}
 				else if (response1 == 2)
 				{
@@ -220,7 +228,7 @@ int Quest::getQuest1()
 		return 1;
 	}
 
-	cout << "Congradulations you completed quest 1" << endl;
+	cout << "Congrats you completed quest 1!" << endl;
 	system("pause");
 	return 2;
 }
@@ -240,12 +248,14 @@ int Quest::getQuest2()
 		cout << "A monster has found you!" << endl;
 		cout << "You must fight him to continue on" << endl;
 
-		fightResult = Battle("monster", 1, 1, 1, 10, 10);
+		fightResult = Battle("Wolf");
 
 		if (!fightResult) //the User died
 		{
 			return 1; //the user failed the quest return 1
 		}
+		monster.levelUp(); //Level up the monsters
+		user.levelUp();//Level up the user
 
 		cout << "You nurse your injuries as you continue on." << endl;
 	}
@@ -256,12 +266,14 @@ int Quest::getQuest2()
 		cout << "A monster has found you!" << endl;
 		cout << "You must fight him to continue on" << endl;
 
-		fightResult = Battle("monster", 1, 1, 1, 10, 10);
+		fightResult = Battle("Orc");
 
 		if (!fightResult) //the User died
 		{
 			return 1; //the user failed the quest return 1
 		}
+		monster.levelUp(); //Level up the monsters
+		user.levelUp();//Level up the user
 		cout << "You nurse your injuries as you continue on." << endl;
 	}
 	cout << "You a closer now and you can now see the building is a castle." << endl;
@@ -270,12 +282,14 @@ int Quest::getQuest2()
 		cout << "A scout has found you!" << endl;
 		cout << "You must fight him to continue on." << endl;
 
-		fightResult = Battle("monster", 1, 1, 1, 10, 10);
+		fightResult = Battle("Scout");
 
 		if (!fightResult) //the User died
 		{
 			return 1; //the user failed the quest return 1
 		}
+		monster.levelUp(); //Level up the monsters
+		user.levelUp();//Level up the user
 		cout << "You nurse your injuries as you continue on." << endl;
 	}
 	cout << "With a nod you realise that the castle is Gregors Castle." << endl;
@@ -309,12 +323,14 @@ int Quest::getQuest2()
 			//if rand number is 1 or 2 then the user will fight the monster
 			cout << "The monster didn't believe you (or believed you too well)." << endl;
 
-			fightResult = Battle("monster", 1, 1, 1, 10, 10);
+			fightResult = Battle("Monster");
 
 			if (!fightResult) //the User died
 			{
 				return 1; //the user failed the quest return 1
 			}
+			monster.levelUp(); //Level up the monsters
+			user.levelUp();//Level up the user
 			cout << "After defeating the monster you swim the moat and scale the wall." << endl;
 		}
 	}
@@ -322,12 +338,14 @@ int Quest::getQuest2()
 	{
 		cout << "You charge the monster with sword drawn" << endl;
 
-		fightResult = Battle("monster", 1, 1, 1, 10, 10);
+		fightResult = Battle("Monster");
 
 		if (!fightResult) //the User died
 		{
 			return 1; //the user failed the quest return 1
 		}
+		monster.levelUp(); //Level up the monsters
+		user.levelUp();//Level up the user
 
 	}
 
@@ -355,12 +373,14 @@ int Quest::getQuest2()
 		cout << "Choose one: ";
 		cin >> userIn; //get input
 
-		fightResult = Battle("monster", 1, 1, 1, 10, 10);
+		fightResult = Battle("monster");
 
 		if (!fightResult) //the User died
 		{
 			return 1; //the user failed the quest return 1
 		}
+		monster.levelUp(); //Level up the monsters
+		user.levelUp();//Level up the user
 	} while (userIn != roomNum); //if user input does not = room number
 								 //out put result
 	cout << "As you walk into the " << rooms[roomNum] << ".";
@@ -370,12 +390,14 @@ int Quest::getQuest2()
 	{
 		cout << "The Guardian has Awoken!" << endl;
 
-		fightResult = Battle("monster", 1, 1, 1, 10, 10);
+		fightResult = Battle("Guardian");
 
 		if (!fightResult) //the User died
 		{
 			return 1; //the user failed the quest return 1
 		}
+		monster.levelUp(); //Level up the monsters
+		user.levelUp();//Level up the user
 		cout << " Congrats you have defeated the guardian" << endl;
 	}
 	else
@@ -397,12 +419,14 @@ int Quest::getQuest2()
 
 		cout << "You have been found!" << endl;
 
-		fightResult = Battle("monster", 1, 1, 1, 10, 10);
+		fightResult = Battle("Monster Guard");
 
 		if (!fightResult) //the User died
 		{
 			return 1; //the user failed the quest return 1
 		}
+		monster.levelUp(); //Level up the monsters
+		user.levelUp();//Level up the user
 		cout << "Slowly you continue onwards through the dungeons" << endl;
 		system("pause");
 	}
@@ -411,11 +435,13 @@ int Quest::getQuest2()
 	cout << "Fight him quickly and escape!" << endl;
 	//fight the guard
 
-	fightResult = Battle("monster", 1, 1, 1, 10, 10);
+	fightResult = Battle("Guard");
 	if (!fightResult) //the User died
 	{
 		return 1; //the user failed the quest return 1
 	}
+	monster.levelUp(); //Level up the monsters
+	user.levelUp();//Level up the user
 	cout << "You have defeated the monster and escape to the mountains." << endl;
 	system("pause");
 
@@ -428,12 +454,14 @@ int Quest::getQuest2()
 	{
 		cout << "One of the monsters from the castle has caught up to you!" << endl;
 
-		fightResult = Battle("monster", 1, 1, 1, 10, 10);
+		fightResult = Battle("Monster pursuer");
 
 		if (!fightResult) //the User died
 		{
 			return 1; //the user failed the quest return 1
 		}
+		monster.levelUp(); //Level up the monsters
+		user.levelUp();//Level up the user
 		cout << "The path ahead is getting harder with your wounds." << endl;
 		system("pause");
 	}
@@ -443,12 +471,14 @@ int Quest::getQuest2()
 		cout << "A monster thinks of you as easy pickings!" << endl;
 		cout << "Show him the error of his ways" << endl;
 
-		fightResult = Battle("monster", 1, 1, 1, 10, 10);
+		fightResult = Battle("Hungry monster");
 
 		if (!fightResult) //the User died
 		{
 			return 1; //the user failed the quest return 1
 		}
+		monster.levelUp(); //Level up the monsters
+		user.levelUp();//Level up the user
 		cout << "The monsters death may have alerted others to your position.\nYou continue on quickly." << endl;
 		system("pause");
 	}
@@ -457,12 +487,14 @@ int Quest::getQuest2()
 	{
 		cout << "A monster has caught your scent and found you." << endl;
 
-		fightResult = Battle("monster", 1, 1, 1, 10, 10);
+		fightResult = Battle("Hungry Monster");
 
 		if (!fightResult) //the User died
 		{
 			return 1; //the user failed the quest return 1
 		}
+		monster.levelUp(); //Level up the monsters
+		user.levelUp();//Level up the user
 		cout << "The monsters death may have alerted others to your position. You continue on quickly." << endl;
 		//system("pause");
 	}
@@ -472,12 +504,14 @@ int Quest::getQuest2()
 	{
 		cout << "A monster went ahead of you and planned an ambush." << endl;
 
-		fightResult = Battle("monster", 1, 1, 1, 10, 10);
+		fightResult = Battle("Monster");
 
 		if (!fightResult) //the User died
 		{
 			return 1; //the user failed the quest return 1
 		}
+		monster.levelUp(); //Level up the monsters
+		user.levelUp();//Level up the user
 		cout << "The kings guard is on its way." << endl;
 		system("pause");
 		//Clear the Screen
@@ -737,12 +771,14 @@ int Quest::getQuest3()
 		////////////////////////////
 		if (monsterCheck(6)) //checks to see if a random monster appears
 		{
-			fightResult = Battle("monster", 1, 1, 1, 10, 10);
+			fightResult = Battle("monster");
 
 			if (!fightResult) //the User died
 			{
 				return 1; //the user failed the quest return 1
 			}
+			monster.levelUp(); //Level up the monsters
+			user.levelUp();//Level up the user
 			cout << "You check yourself over and patch up your wounds." << endl;
 		}
 		else
@@ -760,12 +796,14 @@ int Quest::getQuest3()
 		cout << "As you approach the ruins, a shape stands out.  It looks humanoid...but maybe not?  You can't tell..." << endl;
 		if (monsterCheck(8))
 		{
-			fightResult = Battle("monster", 1, 1, 1, 10, 10);
+			fightResult = Battle("Half Orc-Human");
 
 			if (!fightResult) //the User died
 			{
 				return 1; //the user failed the quest return 1
 			}
+			monster.levelUp(); //Level up the monsters
+			user.levelUp();//Level up the user
 			cout << "You bandage yourself up, and take a quick breather." << endl;
 		}
 		else
@@ -788,12 +826,14 @@ int Quest::getQuest3()
 		{
 			cout << "You are almost to the voices when something bursts out in front of you!" << endl;
 
-			fightResult = Battle("monster", 1, 1, 1, 10, 10);
+			fightResult = Battle("Unknown Attacker");
 
 			if (!fightResult) //the User died
 			{
 				return 1; //the user failed the quest return 1
 			}
+			monster.levelUp(); //Level up the monsters
+			user.levelUp();//Level up the user
 			cout << "You take a few moments to recuperate and stop the bleeding." << endl;
 		}
 		else
@@ -815,12 +855,14 @@ int Quest::getQuest3()
 		cout << "As you get a little ways along the path, you hear a branch snap..." << endl;
 		if (monsterCheck(3)) //checks to see if a random monster appears
 		{
-			fightResult = Battle("monster", 1, 1, 1, 10, 10);
+			fightResult = Battle("monster");
 
 			if (!fightResult) //the User died
 			{
 				return 1; //the user failed the quest return 1
 			}
+			monster.levelUp(); //Level up the monsters
+			user.levelUp();//Level up the user
 			cout << "You check yourself over and patch up your wounds." << endl;
 		}
 		else
@@ -838,12 +880,14 @@ int Quest::getQuest3()
 		cout << "As you approach the ruins, a shape stands out.  It looks humanoid...but maybe not?  You can't tell..." << endl;
 		if (monsterCheck(4))
 		{
-			fightResult = Battle("monster", 1, 1, 1, 10, 10);
+			fightResult = Battle("Hooded Attacker");
 
 			if (!fightResult) //the User died
 			{
 				return 1; //the user failed the quest return 1
 			}
+			monster.levelUp(); //Level up the monsters
+			user.levelUp();//Level up the user
 			cout << "You bandage yourself up, and take a quick breather." << endl;
 		}
 		else
@@ -862,12 +906,14 @@ int Quest::getQuest3()
 		cout << "As you venture deeper, you notice a strange silence." << endl;
 		if (monsterCheck(6))
 		{
-			fightResult = Battle("monster", 1, 1, 1, 10, 10);
+			fightResult = Battle("monster");
 
 			if (!fightResult) //the User died
 			{
 				return 1; //the user failed the quest return 1
 			}
+			monster.levelUp(); //Level up the monsters
+			user.levelUp();//Level up the user
 			cout << "You rub some dirt on your wounds and hope for the best." << endl;
 		}
 		else
@@ -885,12 +931,13 @@ int Quest::getQuest3()
 		cout << "You slowly crack the door open." << endl;
 		if (monsterCheck(8))
 		{
-			fightResult = Battle("monster", 1, 1, 1, 10, 10);
+			fightResult = Battle("Killer");
 
 			if (!fightResult) //the User died
 			{
 				return 1; //the user failed the quest return 1
-			}
+			}monster.levelUp(); //Level up the monsters
+			user.levelUp();//Level up the user
 			cout << "Is that your blood....or its...you dont know, but you wipe if off none the less." << endl;
 		}
 		else
@@ -910,12 +957,14 @@ int Quest::getQuest3()
 		if (monsterCheck(9))
 		{
 			cout << "You are almost to the voices when something bursts out in front of you!" << endl;
-			fightResult = Battle("monster", 1, 1, 1, 10, 10);
+			fightResult = Battle("Look out");
 
 			if (!fightResult) //the User died
 			{
 				return 1; //the user failed the quest return 1
 			}
+			monster.levelUp(); //Level up the monsters
+			user.levelUp();//Level up the user
 			cout << "You take a few moments to recuperate and stop the bleeding." << endl;
 		}
 		else
@@ -965,12 +1014,14 @@ int Quest::getQuest3()
 	cout << "'Behold, this is FLiggurt!' the Shaman exclaims. 'If you can best him, I will share our secret...'" << endl;
 	cout << "One of the Goblins steps around and unlocks the door to the cage. With a squeak, the door opens and a blur shoots towards you..." << endl;
 
-	fightResult = Battle("monster", 1, 1, 1, 10, 10);
+	fightResult = Battle("Goblin Champion");
 
 	if (!fightResult) //the User died
 	{
 		return 1; //the user failed the quest return 1
 	}
+	monster.levelUp(); //Level up the monsters
+	user.levelUp();//Level up the user
 
 	cout << "Before the final blow is struck, the Shaman yells, 'Stop! I've seen enough...'" << endl;
 	cout << "The Shaman hurriedly walks over to the body of Fliggurt." << endl;
@@ -1032,13 +1083,14 @@ int Quest::getQuest3()
 	cout << "You head towards the kitchen to make the Bloodroot into a tea." << endl;
 	cout << "As you approach the kitchen, something emerges from the shadows..." << endl;
 
-	fightResult = Battle("monster", 1, 1, 1, 10, 10);
+	fightResult = Battle("Cook");
 
 	if (!fightResult) //the User died
 	{
 		return 1; //the user failed the quest return 1
 	}
-
+	monster.levelUp(); //Level up the monsters
+	user.levelUp();//Level up the user
 	cout << endl;
 	system("pause");
 
@@ -1079,13 +1131,14 @@ int Quest::getQuest3()
 	cout << "'No matter what happens, keep making the tea,' you tell her." << endl;
 	cout << "Just then, the door bursts open..." << endl;
 
-	fightResult = Battle("monster", 1, 1, 1, 10, 10);
+	fightResult = Battle("monster");
 
 	if (!fightResult) //the User died
 	{
 		return 1; //the user failed the quest return 1
 	}
-
+	monster.levelUp(); //Level up the monsters
+	user.levelUp();//Level up the user
 	cout << endl;
 	system("pause");
 
@@ -1098,13 +1151,14 @@ int Quest::getQuest3()
 	cout << "As you approach the Queen's room, you notice a figure at the door. " << endl;
 	cout << "You set the tea down in anticipation of what will happen next..." << endl;
 
-	fightResult = Battle("monster", 1, 1, 1, 10, 10);
+	fightResult = Battle("Assassin");
 
 	if (!fightResult) //the User died
 	{
 		return 1; //the user failed the quest return 1
 	}
-
+	monster.levelUp(); //Level up the monsters
+	user.levelUp();//Level up the user
 	cout << endl;
 	system("pause");
 
@@ -1114,13 +1168,14 @@ int Quest::getQuest3()
 	cout << "'Back again?' she shouts,'You won't leave this time...'" << endl;
 	cout << "The queen transforms into some sort of creature, and charges at you." << endl;
 
-	fightResult = Battle("monster", 1, 1, 1, 10, 10);
+	fightResult = Battle("Monstrous Queen");
 
 	if (!fightResult) //the User died
 	{
 		return 1; //the user failed the quest return 1
 	}
-
+	monster.levelUp(); //Level up the monsters
+	user.levelUp();//Level up the user
 	cout << endl;
 	system("pause");
 
@@ -1142,8 +1197,9 @@ int Quest::getQuest3()
 
 // Battle System by Gabriel Lockner
 // Implemented February 19, 2017
-bool Quest::Battle(string monsterName, int monsterLevel, int monsterAttack, int monsterHealth, int playerAttack, int playerHealth)
+bool Quest::Battle(string monsterName)
 {
+	monster.setName(monsterName);
 	int choice;
 	cout << "A level " << monster.getLevel() << monster.GetName() << " is attacking!"
 		<< "\n What do you do?\n\n";

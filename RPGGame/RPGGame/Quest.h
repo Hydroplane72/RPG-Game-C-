@@ -15,7 +15,7 @@ public:
 
 
 private:
-	bool Battle(std::string monsterName, int monsterLevel, int monsterAttack, int monsterHealth, int playerAttack, int playerHealth);
+	bool Battle(std::string monsterName);
 	int questNum;
 	std::string userName;
 	void setUserName(std::string);
