@@ -1,7 +1,7 @@
 /*
 This class is the quests class.
 It is supposed to Hold info and play the required quests.
-Programmed by Matthew Rozendaal: Total time: 10
+Programmed by Matthew Rozendaal: Total time: 16
 getQuest()
 getScene()
 monsterCheck()
