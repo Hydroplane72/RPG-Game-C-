@@ -1272,6 +1272,11 @@ bool Quest::Battle(string monsterName)
 				cout << "1.) Fight \n2.) Run\n";
 				cin >> choice;
 			} while (choice != 1 && choice != 2);
+			if (choice == 2)
+			{
+				cout << "You deftly escape the " << monster.GetName();
+				return true;
+			}
 		}	
 	}
 	else if (choice ==2)
