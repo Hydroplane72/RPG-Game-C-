@@ -1,0 +1,16 @@
+﻿  Quest.cpp
+c:\users\owner\documents\visual studio 2015\projects\rpggame\rpggame\quest.cpp(230): warning C4101: 'returnNum': unreferenced local variable
+  main.cpp
+  Creature.cpp
+c:\users\owner\documents\visual studio 2015\projects\rpggame\rpggame\creature.cpp(20): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\owner\documents\visual studio 2015\projects\rpggame\rpggame\creature.cpp(21): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\owner\documents\visual studio 2015\projects\rpggame\rpggame\creature.cpp(58): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\owner\documents\visual studio 2015\projects\rpggame\rpggame\creature.cpp(59): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  Character.cpp
+c:\users\owner\documents\visual studio 2015\projects\rpggame\rpggame\character.cpp(18): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\owner\documents\visual studio 2015\projects\rpggame\rpggame\character.cpp(19): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\owner\documents\visual studio 2015\projects\rpggame\rpggame\character.cpp(51): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\owner\documents\visual studio 2015\projects\rpggame\rpggame\character.cpp(52): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  Generating Code...
+  RPGGame.vcxproj -> C:\Users\Owner\Documents\Visual Studio 2015\Projects\RPGGame\Debug\RPGGame.exe
+  RPGGame.vcxproj -> C:\Users\Owner\Documents\Visual Studio 2015\Projects\RPGGame\Debug\RPGGame.pdb (Full PDB)
